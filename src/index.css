@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.logo_gradient {
+  position: relative;
+}
+
+.logo_gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    #1ABFC5 100%,  /* Color stop 1 */
+    #FFFFFF 100%   /* Color stop 2 */
+  );
+  z-index: -1;
+}
+
+.brightness-full-white {
+  filter: brightness(1);
+}

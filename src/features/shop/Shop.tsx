@@ -1,8 +1,9 @@
-
+import ProductList from "./ProductList";
 
 const Shop = () => (
-    <div>Shop</div>
-  )
+  <div className="w-[60%]">
+    <ProductList />
+  </div>
+);
 
-
-export default Shop
+export default Shop;

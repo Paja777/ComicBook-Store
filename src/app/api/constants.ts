@@ -1,4 +1,13 @@
+import image1 from '../../assets/heart-svgrepo-com.svg';
+import image2 from '../../assets/search-svgrepo-com.svg';
+import image3 from '../../assets/bag-heart-svgrepo-com.svg';
 
+
+
+export interface Link {
+  image: string;
+  name: "My account" | "favorite" | "search" | "bag";
+}
 
 export const products = [
     {
@@ -50,3 +59,22 @@ export const products = [
       price: "$60"
     }
   ];
+
+  export const navLinks : Link[] = [
+    {
+      image: '',
+      name: 'My account'
+    },
+    {
+      image: image1,
+      name: 'favorite'
+    },
+    {
+      image: image2,
+      name: 'search'
+    },
+    {
+      image: image3,
+      name: 'bag'
+    }
+  ]

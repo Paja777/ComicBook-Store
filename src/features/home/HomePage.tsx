@@ -1,6 +1,9 @@
+import Hero from "../../app/layout/Hero";
 
 export default function HomePage() {
   return (
-    <div className="text-3xl font-bold underline">HomePage</div>
+    <div className="relative w-full h-[630px]">
+    <Hero />
+    </div>
   )
 } 

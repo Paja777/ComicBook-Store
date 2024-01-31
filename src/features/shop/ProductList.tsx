@@ -4,9 +4,9 @@ import { Product } from "../../app/models/product"
 
 
 const ProductList = () => (
-    <div>
+    <div className="flex flex-row flex-wrap gap-3 ml-5 ">
         {products.map((product : Product) => (
-            <ProductCard {...product}/>
+            <ProductCard key={product.id} {...product}/>
         ))}
     </div>
   )
