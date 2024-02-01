@@ -1,9 +1,9 @@
 import ProductList from "./ProductList";
 
 const Shop = () => (
-  <div className="w-[60%]">
+  <div className="w-[60%] h-[700px]">
     <ProductList />
-  </div>
+  </div> 
 );
 
 export default Shop;

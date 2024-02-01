@@ -8,6 +8,17 @@
   background: linear-gradient(125deg, #272727 0%, #11101d 100%);
 }
 
+.card-product {
+  border-radius: 20px;
+  background: linear-gradient(
+    144deg,
+    #fff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+  backdrop-filter: blur(5px);
+}
+
 .headline-hero {
   color: #fff;
   font-size: 90px;

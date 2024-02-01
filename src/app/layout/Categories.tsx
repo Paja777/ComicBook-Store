@@ -1,8 +1,9 @@
-import { Category, categories } from "../api/constants";
+import { categories } from "../lib/data";
+import {  Category } from '../models/category';
 import arrow from "../../assets/arrow.svg";
 
 const Categories = () => (
-  <div className="flex flex-row gap-24 relative h-[680px] justify-center">
+  <div className="flex flex-row gap-24 relative h-[640px] justify-center">
     {categories.map((category: Category) => (
       <div
         key={category.id}
@@ -21,6 +22,7 @@ const Categories = () => (
         </div>
       </div>
     ))}
+    <div className="radial-hero absolute z-[3] left-100 top-0 translate-x-[135%] -translate-y-[40%]  opacity-60" />
   </div>
 );
 

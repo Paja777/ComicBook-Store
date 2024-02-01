@@ -3,7 +3,7 @@ import Header from "./Header";
 
 function App() {
   return (
-    <div className="bg-primary w-full overflow-hidden">
+    <div className="bg-primary w-full ">
       <Header />
       <Outlet />
     </div>

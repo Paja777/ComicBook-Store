@@ -1,5 +1,6 @@
 import logoipsum from "../../assets/logoipsum-329.svg";
-import { Link, navLinks as links } from "../api/constants";
+import {  navLinks as links } from "../lib/data";
+import { NavLink as Link } from '../models/navlink' 
 import { NavLink } from "react-router-dom";
 import '../../index.css';
 
