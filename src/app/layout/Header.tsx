@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import '../../index.css';
 
 const Header = () => (
-  <nav className="flex h-[100px] justify-between items-center mb-12">
+  <nav className="flex h-[100px] justify-between items-center mb-12 ">
     <img src={logoipsum} alt="logo" className='logo_gradient w-[100px] h-[100px] ml-20 mt-10' />
     <div className="flex flex-1 justify-end">
       {links.map((link: Link) => (

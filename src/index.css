@@ -1,26 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-.logo_gradient {
-  position: relative;
+.grey-gradient {
+  background: linear-gradient(125deg, #272727 0%, #11101d 100%);
 }
 
-.logo_gradient::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(
-    #1ABFC5 100%,  /* Color stop 1 */
-    #FFFFFF 100%   /* Color stop 2 */
+.headline-hero {
+  color: #fff;
+  font-size: 90px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 100.8px */
+  letter-spacing: 0.72px;
+  z-index: 11;
+}
+
+.text-hero {
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 170%; /* 30.6px */
+}
+
+.radial-hero {
+  width: 801px;
+  height: 619px;
+  flex-shrink: 0;
+  border-radius: 801px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #fbfdfd 0%,
+    rgba(4, 118, 122, 0) 100%
   );
-  z-index: -1;
+}
+.radial-hero1 {
+  width: 801px;
+  height: 619px;
+  flex-shrink: 0;
+  border-radius: 992px;
+  background: radial-gradient(
+    55.4% 46.68% at 50% 50%,
+    #066063 0%,
+    rgba(5, 61, 64, 0) 100%
+  );
 }
 
-.brightness-full-white {
-  filter: brightness(1);
+.text-gradient {
+  background: radial-gradient(
+    64.33% 64.33% at 71.16% 35.69%,
+    #def9fa 0.89%,
+    #bef3f5 17.23%,
+    #9dedf0 42.04%,
+    #7de7eb 55.12%,
+    #5ce1e6 71.54%,
+    #33bbcf 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 11;
 }
