@@ -1,5 +1,5 @@
 import { categories } from "../lib/data";
-import {  Category } from '../models/category';
+import { Category } from "../models/category";
 import arrow from "../../assets/arrow.svg";
 
 const Categories = () => (
@@ -7,7 +7,7 @@ const Categories = () => (
     {categories.map((category: Category) => (
       <div
         key={category.id}
-        className="relative h-[600px] group hover:scale-110 cursor-pointer transition"
+        className="relative h-[600px] group hover:scale-110 cursor-pointer  z-[2] transition"
       >
         <img src={category.image} alt="category" />
         <div className="flex flex-row gap-4 justify-center items-center mt-4">
@@ -22,7 +22,7 @@ const Categories = () => (
         </div>
       </div>
     ))}
-    <div className="radial-hero absolute z-[3] left-100 top-0 translate-x-[135%] -translate-y-[40%]  opacity-60" />
+    <div className="radial-hero1 absolute z-[0] left-0 bottom-0 translate-y-[40%] translate-x-[-50%] opacity-6  opacity-80 " />
   </div>
 );
 

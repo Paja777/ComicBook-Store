@@ -8,7 +8,27 @@ import uuid from 'react-uuid';
 import { NavLink } from '../models/navlink';
 import { Category } from '../models/category';
 import { Product } from '../models/product';
-
+import graph1 from '../../assets/graph 1.webp'
+import graph3 from '../../assets/graph 2.jpg'
+import graph2 from '../../assets/graph 3.jpg'
+import graph4 from '../../assets/graph 4.webp'
+import graph5 from '../../assets/graph 5.jpg'
+import graph6 from '../../assets/graph 6.jpg'
+import graph7 from '../../assets/graph 7.jpg'
+import manga1 from '../../assets/manga 1.jpg'
+import manga2 from '../../assets/manga 2.jpg'
+import manga3 from '../../assets/manga 3.webp'
+import manga4 from '../../assets/manga 4.jpg'
+import manga5 from '../../assets/manga 5.jpg'
+import manga6 from '../../assets/manga 6.webp'
+import manga7 from '../../assets/manga 7.jpg'
+import SH1 from '../../assets/SH 1.jpg'
+import SH2 from '../../assets/SH 2.webp'
+import SH3 from '../../assets/SH 3.jpg'
+import SH4 from '../../assets/SH 4.jpg'
+import SH5 from '../../assets/SH 5.webp'
+import SH6 from '../../assets/SH 6.jpg'
+import SH7 from '../../assets/SH 7.webp'
 
 
 
@@ -16,51 +36,59 @@ import { Product } from '../models/product';
 export const products : Product[] = [
     {
       id: uuid(),
-      title: "Boots",
+      title: "Wolverine",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      price: "$100"
+      price: "$100",
+      img: graph1
     },
     {
       id: uuid(),
-      title: "Hat",
+      title: "Naruto",
       description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$25"
+      price: "$125",
+      img: manga1
     },
     {
       id: uuid(),
-      title: "Jacket",
+      title: "Superman",
       description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      price: "$150"
+      price: "$150",
+      img: SH1
     },
     {
       id: uuid(),
-      title: "Gloves",
+      title: "Capitan America",
       description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      price: "$20"
+      price: "$120",
+      img: graph2
     },
     {
       id: uuid(),
-      title: "Sunglasses",
+      title: "One piece",
       description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
-      price: "$50"
+      price: "$150",
+      img: manga2
     },
     {
       id: uuid(),
-      title: "Backpack",
+      title: "Iron Man",
       description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-      price: "$80"
+      price: "$180",
+      img: SH2
     },
     {
       id: uuid(),
-      title: "Sneakers",
+      title: "Capetan Marvel",
       description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
-      price: "$120"
+      price: "$120",
+      img: graph3
     },
     {
       id: uuid(),
-      title: "Jeans",
+      title: "Daredevil",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$60"
+      price: "$160",
+      img: SH3
     }
   ];
 

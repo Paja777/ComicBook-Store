@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 
 const Button = ({ name, size : { w, h } } : ButtonProps) => (
-    <button className={`w-${w} h-${h} absolute bottom-0 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded`}>
+    <button className={`w-[${w}] h-${h}  gradient-bg  hover:scale-[1.05] text-primary font-normal  py-1 px-2 rounded transition`}>
     {name}
   </button>
   )
