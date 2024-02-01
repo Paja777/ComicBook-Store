@@ -8,7 +8,7 @@ const Header = () => (
     <img src={logoipsum} alt="logo" className='logo_gradient w-[100px] h-[100px] ml-20 mt-10' />
     <div className="flex flex-1 justify-end">
       {links.map((link: Link) => (
-        <NavLink to={""} key={link.name} className={`mr-10`}>
+        <NavLink to={""} key={link.id} className={`mr-10 z-[6]`}>
           {link.image === "" ? (
             <div className="font-poppins font-light text-[18px] text-white ">{link.name}</div>
           ) : (

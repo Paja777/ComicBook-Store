@@ -1,12 +1,20 @@
 import image1 from '../../assets/heart-svgrepo-com.svg';
 import image2 from '../../assets/search-svgrepo-com.svg';
 import image3 from '../../assets/bag-heart-svgrepo-com.svg';
-
+import superman from '../../assets/superman.svg'
+import onepiece from '../../assets/onepiece.svg'
+import wolf from '../../assets/wolf.svg'
 
 
 export interface Link {
+  id: number;
   image: string;
   name: "My account" | "favorite" | "search" | "bag";
+}
+export interface Category {
+  id: number;
+  name: 'Superhero Comics' | 'Manga' | 'Graphic Novels';
+  image: string;
 }
 
 export const products = [
@@ -62,19 +70,41 @@ export const products = [
 
   export const navLinks : Link[] = [
     {
+      id: 1,
       image: '',
       name: 'My account'
     },
     {
+      id: 2,
       image: image1,
       name: 'favorite'
     },
     {
+      id: 3,
       image: image2,
       name: 'search'
     },
     {
+      id: 4,
       image: image3,
       name: 'bag'
     }
+  ]
+
+  export const categories : Category[]= [
+   {
+    id: 1,
+    name: 'Superhero Comics',
+    image: superman
+   },
+   {
+    id: 2,
+    name: 'Manga',
+    image: onepiece
+   },
+   {
+    id: 3,
+    name: 'Graphic Novels',
+    image: wolf
+   }
   ]
