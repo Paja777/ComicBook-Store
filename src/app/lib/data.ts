@@ -29,6 +29,10 @@ import SH4 from '../../assets/SH 4.jpg'
 import SH5 from '../../assets/SH 5.webp'
 import SH6 from '../../assets/SH 6.jpg'
 import SH7 from '../../assets/SH 7.webp'
+import mailIcon from '../../assets/mailIcon.svg'
+import paymentIcon from '../../assets/paymentIcon.svg'
+import freeShippingIcon from '../../assets/freeShippingIcon.svg'
+import returnIcon from '../../assets/returnIcon.svg'
 
 
 
@@ -132,3 +136,26 @@ export const products : Product[] = [
     image: wolf
    }
   ]
+
+export const footerData = [
+  {
+    title: 'Return',
+    description: '14 day return',
+    image: returnIcon
+  },
+  {
+    title: 'Free Shipping',
+    description: 'Shipping is on us for every order over $100',
+    image: freeShippingIcon
+  },
+  {
+    title: 'Flexible Payment Options',
+    description: 'Buy now pay later',
+    image: paymentIcon
+  },
+  {
+    title: 'Ask Us',
+    description: 'We will receive Your Mails and respond in shortest notice',
+    image: mailIcon
+  },
+]
