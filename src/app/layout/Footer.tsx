@@ -21,6 +21,7 @@ const Footer = () => (
       <div className="flex flex-row flex-wrap ">
         {footerData.map((icon: any) => (
           <FooterIcon
+            key={icon.title}
             image={icon.image}
             title={icon.title}
             description={icon.description}

@@ -100,22 +100,26 @@ export const products : Product[] = [
     {
       id: uuid(),
       image: '',
-      name: 'My account'
+      name: 'My account',
+      path: 'account'
     },
     {
       id: uuid(),
       image: image1,
-      name: 'favorite'
+      name: 'favorite',
+      path: 'favorite'
     },
     {
       id: uuid(),
       image: image2,
-      name: 'search'
+      name: 'search',
+      path: ''
     },
     {
       id: uuid(),
       image: image3,
-      name: 'bag'
+      name: 'bag',
+      path: 'cart'
     }
   ]
 
