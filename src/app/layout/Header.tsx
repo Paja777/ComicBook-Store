@@ -5,6 +5,7 @@ import "../../index.css";
 import { useState } from "react";
 import HeaderLink from "../components/HeaderLink";
 import SearchInput from "../components/SearchInput";
+import DropDown from "../components/DropDown";
 
 const Header = () => {
   const [searchBar, setSearchBar] = useState(false);
@@ -18,14 +19,16 @@ const Header = () => {
           className="logo_gradient w-[100px] h-[100px] ml-20 mt-10"
         />
         <div className="flex flex-1 justify-end">
-          {links.map((link: Link) => (
-            <HeaderLink key={link.id} setSearchBar={setSearchBar} {...link}/>
-          ))}
+          {links.map((link: Link) => {
+            return link.name === "My account" ? (
+              <DropDown />
+            ) : (
+              <HeaderLink key={link.id} setSearchBar={setSearchBar} {...link} />
+            );
+          })}
         </div>
       </nav>
-      {searchBar && (
-        <SearchInput />
-      )}
+      {searchBar && <SearchInput />}
     </div>
   );
 };
