@@ -6,6 +6,8 @@ import { useState } from "react";
 import HeaderLink from "../components/HeaderLink";
 import SearchInput from "../components/SearchInput";
 import DropDown from "../components/DropDown";
+import { NavLink } from "react-router-dom";
+import LoginButton from "../../features/account/LoginBtn";
 
 const Header = () => {
   const [searchBar, setSearchBar] = useState(false);
@@ -13,21 +15,24 @@ const Header = () => {
   return (
     <div className="flex flex-col relative">
       <nav className="flex h-[100px] justify-between items-center mb-2 ">
-        <img
-          src={logoipsum}
-          alt="logo"
-          className="logo_gradient w-[100px] h-[100px] ml-20 mt-10"
-        />
+        <NavLink to={""}>
+          <img
+            src={logoipsum}
+            alt="logo"
+            className="logo_gradient w-[100px] h-[100px] ml-20 mt-10"
+          />
+        </NavLink>
         <div className="flex flex-1 justify-end">
           {links.map((link: Link) => {
             return link.name === "My account" ? (
-              <DropDown />
+              <DropDown items={["Login", "Register"]} />
             ) : (
               <HeaderLink key={link.id} setSearchBar={setSearchBar} {...link} />
             );
           })}
         </div>
       </nav>
+
       {searchBar && <SearchInput />}
     </div>
   );

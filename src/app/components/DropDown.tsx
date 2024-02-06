@@ -1,12 +1,18 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { useAuth0 } from "@auth0/auth0-react";
+
+interface DropDownProps {
+    items: string[];
+  }
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function DropDown() {
+export default function DropDown({ items } : DropDownProps) {
+    const { loginWithRedirect } = useAuth0();
   return (
     <Menu as="div" className="relative inline-block text-left z-[99]">
       <div>
@@ -25,62 +31,26 @@ export default function DropDown() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 font-poppins z-10 mt-2 w-56 origin-top-right rounded-md bg-primary shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 font-poppins  mt-2 w-56 origin-top-right rounded-md z-[99] bg-primary shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
+
+            {items.map((item : string) => (
+
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
+                <button
+                  onClick={() => loginWithRedirect()}
                   className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-300',
+                    active ? 'bg-secondary text-gray-900 w-full' : 'text-gray-300 w-full',
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  Account settings
-                </a>
+                  {item}
+                </button>
               )}
             </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-300',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Support
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-300',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  License
-                </a>
-              )}
-            </Menu.Item>
-            <form method="POST" action="#">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    type="submit"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-300',
-                      'block w-full px-4 py-2 text-left text-sm'
-                    )}
-                  >
-                    Sign out
-                  </button>
-                )}
-              </Menu.Item>
-            </form>
+            ))}
+            
           </div>
         </Menu.Items>
       </Transition>
