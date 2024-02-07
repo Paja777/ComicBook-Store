@@ -54,7 +54,7 @@ export default function DropDown({ items }: DropDownProps) {
             </Menu.Item>
             ) : (
               items.map((item: string) => (
-                <Menu.Item>
+                <Menu.Item key={item}>
                   {({ active }) => (
                     <button
                       onClick={() => loginWithRedirect()}

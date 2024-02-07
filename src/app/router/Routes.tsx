@@ -8,7 +8,6 @@ import CartPage from "../../features/cart/CartPage";
 import FavoritesPage from "../../features/favorite/FavoritesPage";
 
 
-
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -19,7 +18,7 @@ export const router = createBrowserRouter([
             {path: 'about', element: <About />},
             {path: 'contact', element: <Contact />},
             {path: 'cart', element: <CartPage />},
-            {path: 'favorites', element: <FavoritesPage />},
+            {path: 'favorite', element: <FavoritesPage />},
 
 
         ]

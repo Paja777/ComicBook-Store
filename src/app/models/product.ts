@@ -6,4 +6,5 @@ export interface Product {
     description: string,
     price: string,
     img: string,
+    favorite?: false
 }

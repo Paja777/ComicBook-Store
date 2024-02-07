@@ -1,11 +1,18 @@
 import Button from "../../app/components/Button";
 import { Product } from "../../app/models/product";
+import { useAppDispatch } from "../../app/store/ConfigureStore";
 import image from "../../assets/onepiece.svg";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
+import { addToFavorite } from "../account/accountSlice";
+import { useState } from "react";
 
-const ProductCard = ({ title, price, img }: Product) => {
+const ProductCard = ({ title, price, img, id, description, favorite }: Product) => {
+  const dispatch = useAppDispatch();
+  const [currentColor, setCurrentColor] = useState("gray")
   const handleClick = (event: any) => {
-    event.target.style.color = "red";
+    setCurrentColor(prev => prev === "red" ? "gray" : "red");
+    event.target.style.color = currentColor;
+    dispatch(addToFavorite({ title, price, img, id, description, favorite }));
   };
   return (
     <div className="flex flex-col gap-1 card-product  w-[300px] h-[400px] rounded-[10px] justify-center items-center cursor-pointer">
@@ -18,7 +25,7 @@ const ProductCard = ({ title, price, img }: Product) => {
       <div className=" flex ml-[40%]">
         <FavoriteOutlinedIcon
           onClick={handleClick}
-          sx={{ color: "white", fontSize: "28px" }}
+          sx={{ color:  `${favorite ? "red" : "gray"}`, fontSize: "28px" }}
           className="absolute left-10 "
         />
         <div className="text-secondary text-[16px] font-light font-poppins mt-1 mr-4 ">

@@ -25,7 +25,7 @@ const Header = () => {
         <div className="flex flex-1 justify-end">
           {links.map((link: Link) => {
             return link.name === "My account" ? (
-              <DropDown items={["Login", "Register"]} />
+              <DropDown items={["Login", "Register"]} key={link.id}/>
             ) : (
               <HeaderLink key={link.id} setSearchBar={setSearchBar} {...link} />
             );
