@@ -7,7 +7,7 @@ import HeaderLink from "../components/HeaderLink";
 import SearchInput from "../components/SearchInput";
 import DropDown from "../components/DropDown";
 import { NavLink } from "react-router-dom";
-import LoginButton from "../../features/account/LoginBtn";
+
 
 const Header = () => {
   const [searchBar, setSearchBar] = useState(false);

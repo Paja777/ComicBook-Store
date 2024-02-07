@@ -101,7 +101,7 @@ export const products : Product[] = [
       id: uuid(),
       image: '',
       name: 'My account',
-      path: 'account'
+      path: ''
     },
     {
       id: uuid(),
