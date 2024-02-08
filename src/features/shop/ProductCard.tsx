@@ -6,12 +6,19 @@ import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import { addToFavorite } from "../account/accountSlice";
 import { useState } from "react";
 
-const ProductCard = ({ title, price, img, id, description, favorite }: Product) => {
+const ProductCard = ({
+  title,
+  price,
+  img,
+  id,
+  description,
+  favorite,
+}: Product) => {
   const dispatch = useAppDispatch();
-  const [currentColor, setCurrentColor] = useState("gray")
-  const handleClick = (event: any) => {
-    setCurrentColor(prev => prev === "red" ? "gray" : "red");
-    event.target.style.color = currentColor;
+  const defaultColor = favorite ? "red" : "gray"; // if it renders in favoritePage default will be red
+  const [currentColor, setCurrentColor] = useState(defaultColor);
+  const handleClick = () => {
+    setCurrentColor((prev) => (prev === "red" ? "gray" : "red"));
     dispatch(addToFavorite({ title, price, img, id, description, favorite }));
   };
   return (
@@ -25,7 +32,7 @@ const ProductCard = ({ title, price, img, id, description, favorite }: Product) 
       <div className=" flex ml-[40%]">
         <FavoriteOutlinedIcon
           onClick={handleClick}
-          sx={{ color:  `${favorite ? "red" : "gray"}`, fontSize: "28px" }}
+          sx={{ color: currentColor, fontSize: "28px" }}
           className="absolute left-10 "
         />
         <div className="text-secondary text-[16px] font-light font-poppins mt-1 mr-4 ">

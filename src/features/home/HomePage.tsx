@@ -1,18 +1,15 @@
-import Pagination from "../../app/layout/Pagination";
 import Categories from "../../app/layout/Categories";
 import Hero from "../../app/layout/Hero";
 import MostPopular from "../../app/layout/MostPopular";
-import ProductList from "../shop/ProductList";
 import Footer from "../../app/layout/Footer";
-import { products } from "../../app/lib/data";
+import Shop from "../shop/Shop";
 
 export default function HomePage() {
   return (
     <div className="relative h-[3850px] ">
       <Hero />
       <Categories />
-      <ProductList products={products}/>
-      <Pagination />
+      <Shop pageScale={8}/>
       <MostPopular />
       <Footer />
     </div>

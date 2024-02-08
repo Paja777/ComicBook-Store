@@ -93,6 +93,62 @@ export const products : Product[] = [
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
       img: SH3
+    },
+    {
+      id: uuid(),
+      title: "Wolverine",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      price: "$100",
+      img: graph1
+    },
+    {
+      id: uuid(),
+      title: "Naruto",
+      description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$125",
+      img: manga1
+    },
+    {
+      id: uuid(),
+      title: "Superman",
+      description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      price: "$150",
+      img: SH1
+    },
+    {
+      id: uuid(),
+      title: "Capitan America",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+      price: "$120",
+      img: graph2
+    },
+    {
+      id: uuid(),
+      title: "One piece",
+      description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+      price: "$150",
+      img: manga2
+    },
+    {
+      id: uuid(),
+      title: "Iron Man",
+      description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+      price: "$180",
+      img: SH2
+    },
+    {
+      id: uuid(),
+      title: "Capetano",
+      description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
+      price: "$120",
+      img: graph3
+    },
+    {
+      id: uuid(),
+      title: "dare",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: SH3
     }
   ];
 
