@@ -41,6 +41,7 @@ export const products : Product[] = [
     {
       id: uuid(),
       title: "Wolverine",
+      category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       price: "$100",
       img: graph1
@@ -48,6 +49,7 @@ export const products : Product[] = [
     {
       id: uuid(),
       title: "Naruto",
+      category: "manga",
       description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$125",
       img: manga1
@@ -55,6 +57,7 @@ export const products : Product[] = [
     {
       id: uuid(),
       title: "Superman",
+      category: "superhero",
       description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
       price: "$150",
       img: SH1
@@ -62,6 +65,7 @@ export const products : Product[] = [
     {
       id: uuid(),
       title: "Capitan America",
+      category: "superhero",
       description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
       price: "$120",
       img: graph2
@@ -69,6 +73,7 @@ export const products : Product[] = [
     {
       id: uuid(),
       title: "One piece",
+      category: "manga",
       description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
       price: "$150",
       img: manga2
@@ -76,6 +81,7 @@ export const products : Product[] = [
     {
       id: uuid(),
       title: "Iron Man",
+      category: "superhero",
       description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
       price: "$180",
       img: SH2
@@ -83,6 +89,7 @@ export const products : Product[] = [
     {
       id: uuid(),
       title: "Capetan Marvel",
+      category: "superhero",
       description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
       price: "$120",
       img: graph3
@@ -90,66 +97,12 @@ export const products : Product[] = [
     {
       id: uuid(),
       title: "Daredevil",
+      category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
       img: SH3
     },
-    {
-      id: uuid(),
-      title: "Wolverine",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      price: "$100",
-      img: graph1
-    },
-    {
-      id: uuid(),
-      title: "Naruto",
-      description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$125",
-      img: manga1
-    },
-    {
-      id: uuid(),
-      title: "Superman",
-      description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      price: "$150",
-      img: SH1
-    },
-    {
-      id: uuid(),
-      title: "Capitan America",
-      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      price: "$120",
-      img: graph2
-    },
-    {
-      id: uuid(),
-      title: "One piece",
-      description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
-      price: "$150",
-      img: manga2
-    },
-    {
-      id: uuid(),
-      title: "Iron Man",
-      description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-      price: "$180",
-      img: SH2
-    },
-    {
-      id: uuid(),
-      title: "Capetano",
-      description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
-      price: "$120",
-      img: graph3
-    },
-    {
-      id: uuid(),
-      title: "dare",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
-      img: SH3
-    }
+    
   ];
 
   export const navLinks : NavLink[] = [
@@ -182,17 +135,17 @@ export const products : Product[] = [
   export const categories : Category[]= [
    {
     id: uuid(),
-    name: 'Superhero Comics',
+    name: 'superhero',
     image: superman
    },
    {
     id: uuid(),
-    name: 'Manga',
+    name: 'manga',
     image: onepiece
    },
    {
     id: uuid(),
-    name: 'Graphic Novels',
+    name: 'graphic_novel',
     image: wolf
    }
   ]

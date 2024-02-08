@@ -2,6 +2,6 @@
 
 export interface Category {
     id: string;
-    name: 'Superhero Comics' | 'Manga' | 'Graphic Novels';
+    name: "all" | "superhero" | "manga" | "graphic_novel";
     image: string;
   }
