@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Pagination from "../../app/layout/Pagination";
 import { products } from "../../app/lib/data";
 import ProductList from "./ProductList";
 import { Product } from "../../app/models/product";
 import { useAppSelector } from "../../app/store/ConfigureStore";
 import { filterIt } from "../../app/util/utils";
+import { useScrollContext } from "../../app/context/ScrollContext";
 
 interface ShopProps {
   pageScale: number;
@@ -16,6 +17,8 @@ const Shop = ({ pageScale }: ShopProps) => {
     Product[] | undefined
   >();
   const [currentPage, setCurrentPage] = useState(1);
+  const { scrollToShop } = useScrollContext();
+  const shopRef = useRef<HTMLDivElement>(null);
   
   const filteredArray = filterIt(category, searchTerm, products);
   const totalProducts = filteredArray.length;
@@ -35,10 +38,13 @@ const Shop = ({ pageScale }: ShopProps) => {
   };
   useEffect(() => {
     handlePagination(currentPage);
-  }, [currentPage, category, searchTerm]);
+    if (scrollToShop && shopRef.current) {
+      shopRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [currentPage, category, searchTerm, scrollToShop]);
 
   return (
-    <div className="">
+    <div ref={shopRef} className="">
       <ProductList products={displayedProducts} />
       <Pagination
         metaData={{ currentPage, totalProducts, totalPages }}

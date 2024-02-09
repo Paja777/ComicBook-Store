@@ -1,11 +1,16 @@
 import { search } from "../../features/shop/FilterSlice";
+import { useScrollContext } from "../context/ScrollContext";
 import { useAppDispatch } from "../store/ConfigureStore";
 
 const SearchInput = () => {
   const dispatch = useAppDispatch();
+  const { setScrollToShop } = useScrollContext();
+
+ 
   const handleInputChange = (event: any) => {
     if (event.key === "Enter") {
       dispatch(search(event.target.value));
+      setScrollToShop(true);
     }
   };
   return (

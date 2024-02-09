@@ -5,23 +5,13 @@ interface HeaderLinkProps extends Link {
   setSearchBar: (value: boolean) => void;
 }
 
-const HeaderLink = ({
-  path,
-  image,
-  name,
-  setSearchBar,
-}: HeaderLinkProps) => {
+const HeaderLink = ({ path, image, name, setSearchBar }: HeaderLinkProps) => {
   const clickHandler = () => {
     if (name === "search") setSearchBar(true);
   };
- 
 
   return (
-    <NavLink
-      to={path}
-      onClick={clickHandler}
-      className={`mr-10 z-[6]`}
-    >
+    <NavLink to={path} onClick={clickHandler} className={`mr-10 z-[6]`}>
       {image === "" ? (
         <div className="font-poppins font-light text-[18px] text-white ">
           {name}

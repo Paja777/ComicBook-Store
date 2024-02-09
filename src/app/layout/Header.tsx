@@ -8,7 +8,6 @@ import SearchInput from "../components/SearchInput";
 import DropDown from "../components/DropDown";
 import { NavLink } from "react-router-dom";
 
-
 const Header = () => {
   const [searchBar, setSearchBar] = useState(false);
 
@@ -25,14 +24,13 @@ const Header = () => {
         <div className="flex flex-1 justify-end">
           {links.map((link: Link) => {
             return link.name === "My account" ? (
-              <DropDown items={["Login", "Register"]} key={link.id}/>
+              <DropDown items={["Login", "Register"]} key={link.id} />
             ) : (
               <HeaderLink key={link.id} setSearchBar={setSearchBar} {...link} />
             );
           })}
         </div>
       </nav>
-
       {searchBar && <SearchInput />}
     </div>
   );
