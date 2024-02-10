@@ -17,7 +17,7 @@ const ProductList = ({ products }: ProductListProps) => {
           <ProductCard key={product.id} {...product} />
         ))}
       </div>
-      <div className="radial-hero1 absolute z-[0] left-0 bottom-48 translate-y-[80%] translate-x-[140%] opacity-6  opacity-80 " />
+      <div className="radial-hero1 absolute left-0 bottom-48 translate-y-[80%] translate-x-[140%] opacity-6  opacity-80 " />
     </div>
   );
 };

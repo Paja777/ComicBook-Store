@@ -3,10 +3,12 @@ import { Product } from "../../app/models/product";
 
 interface AccountState {
   favorites: Product[];
+  cartItems: Product[];
 }
 
 const initialState: AccountState = {
   favorites: [],
+  cartItems: [],
 };
 
 export const accountSlice = createSlice({
@@ -26,7 +28,20 @@ export const accountSlice = createSlice({
         state.favorites.splice(existingIndex, 1);
       }
     },
+    addToCart: (state, action) => {
+      const existingIndex = state.cartItems.findIndex(
+        (item) => action.payload.id === item.id
+      );
+      if (existingIndex === -1) {
+        action.payload.inCart = true;
+        state.cartItems.push(action.payload);
+        console.log(action.payload);
+      } else {
+        action.payload.inCart = false;
+        state.cartItems.splice(existingIndex, 1);
+      }
+    },
   },
 });
 
-export const { addToFavorite } = accountSlice.actions;
+export const { addToFavorite, addToCart } = accountSlice.actions;
