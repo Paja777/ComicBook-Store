@@ -2,7 +2,7 @@ import percentIcon from "../../assets/percent-icon.svg";
 import "../../index.css";
 
 const HeroHeadline = () => (
-  <div className="z-[4] absolute left-28 top-28">
+  <div className="z-[4] absolute left-28 top-24">
     <div className="grey-gradient w-[320px] h-[30px] bg-gray-500 rounded-full flex  items-center justify-start text-white">
       <img src={percentIcon} alt="icon" />
       <p>

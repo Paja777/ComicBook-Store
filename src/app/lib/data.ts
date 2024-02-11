@@ -102,6 +102,104 @@ export const products : Product[] = [
       price: "$160",
       img: SH3
     },
+    {
+      id: uuid(),
+      title: "Bleach",
+      category: "manga",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: manga3
+    },
+    {
+      id: uuid(),
+      title: "Spiderman",
+      category: "graphic_novel",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: graph4
+    },
+    {
+      id: uuid(),
+      title: "Spider-man",
+      category: "superhero",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: SH4
+    },
+    {
+      id: uuid(),
+      title: "Naruto",
+      category: "manga",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: manga4
+    },{
+      id: uuid(),
+      title: "Sakamoto",
+      category: "manga",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: manga5
+    },{
+      id: uuid(),
+      title: "Hulk",
+      category: "graphic_novel",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: graph5
+    },{
+      id: uuid(),
+      title: "Avengers",
+      category: "superhero",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: SH5
+    },{
+      id: uuid(),
+      title: "Rurouni",
+      category: "manga",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: manga6
+    },
+    {
+      id: uuid(),
+      title: "Daredevil",
+      category: "graphic_novel",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: graph6
+    },{
+      id: uuid(),
+      title: "Daredevil",
+      category: "graphic_novel",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: SH6
+    },{
+      id: uuid(),
+      title: "Daredevil",
+      category: "graphic_novel",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: manga7
+    },
+    {
+      id: uuid(),
+      title: "Daredevil",
+      category: "graphic_novel",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: graph7
+    },
+    {
+      id: uuid(),
+      title: "Daredevil",
+      category: "graphic_novel",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      price: "$160",
+      img: SH7
+    },
     
   ];
 

@@ -49,7 +49,7 @@ const ProductCard = ({
         </div>
         <div className=" ml-3">
           <Button
-            size={{ w: "196px", h: "30px" }}
+            size={{ w: "100px", h: "30px" }}
             name={buttonText}
             onHandleButtonClick={handleButtonClick}
           />
