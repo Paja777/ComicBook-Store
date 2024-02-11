@@ -164,22 +164,22 @@ export const products : Product[] = [
     },
     {
       id: uuid(),
-      title: "Daredevil",
+      title: "Ironman",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
       img: graph6
     },{
       id: uuid(),
-      title: "Daredevil",
-      category: "graphic_novel",
+      title: "Hulk",
+      category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
       img: SH6
     },{
       id: uuid(),
-      title: "Daredevil",
-      category: "graphic_novel",
+      title: "Bleach",
+      category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
       img: manga7
@@ -194,8 +194,8 @@ export const products : Product[] = [
     },
     {
       id: uuid(),
-      title: "Daredevil",
-      category: "graphic_novel",
+      title: "X-men",
+      category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
       img: SH7
