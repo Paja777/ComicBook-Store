@@ -31,7 +31,7 @@ const ProductCard = ({
     dispatch(addToFavorite({ title, price, img, id, description, favorite }));
   };
   return (
-    <div className="flex flex-col gap-1 card-product  w-[300px] h-[400px] rounded-[10px] justify-center items-center cursor-pointer">
+    <div className="flex flex-col gap-1 card-product w-[300px] h-[400px] justify-center items-center cursor-pointer ">
       <img
         src={img === "" ? image : img}
         alt="cover"

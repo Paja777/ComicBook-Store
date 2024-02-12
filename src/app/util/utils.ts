@@ -1,20 +1,28 @@
 
 import { Product } from "../models/product";
+import { useEffect, useMemo } from 'react';
 
 export const filterIt = (
   category: string,
   searchTerm: string,
   products: Product[],
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>
+  setCurrentNumber: React.Dispatch<React.SetStateAction<number>>
 ) => {
-  let filteredArray = [];
-  setCurrentPage(1);
-  if (category === "all" && searchTerm !== "")
-    return (filteredArray = products.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase())
-    ));
-  if (category === "all" && searchTerm === "")
-    return (filteredArray = products);
-  filteredArray = products.filter((product) => product.category === category);
+  const filteredArray = useMemo(() => {
+    if (category === 'all' && searchTerm !== '') {
+      return products.filter((product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    } else if (category === 'all' && searchTerm === '') {
+      return products;
+    } else {
+      return products.filter((product) => product.category === category);
+    }
+  }, [category, searchTerm, products]);
+
+  useEffect(() => {
+    setCurrentNumber(1);
+  }, [category, searchTerm, products, setCurrentNumber]);
+
   return filteredArray;
 };
