@@ -12,15 +12,15 @@ interface ShopProps {
 }
 
 const Shop = ({ pageScale }: ShopProps) => {
-  const { category, searchTerm } = useAppSelector(state => state.filter);
+  const { category, searchTerm } = useAppSelector((state) => state.filter);
   const [displayedProducts, setDisplayedProducts] = useState<
     Product[] | undefined
   >();
   const [currentPage, setCurrentPage] = useState(1);
   const { scrollToShop } = useScrollContext();
   const shopRef = useRef<HTMLDivElement>(null);
-  
-  const filteredArray = filterIt(category, searchTerm, products);
+
+  const filteredArray = filterIt(category, searchTerm, products, setCurrentPage);
   const totalProducts = filteredArray.length;
   const totalPages = Math.ceil(totalProducts / pageScale);
 
@@ -39,7 +39,7 @@ const Shop = ({ pageScale }: ShopProps) => {
   useEffect(() => {
     handlePagination(currentPage);
     if (scrollToShop && shopRef.current) {
-      shopRef.current.scrollIntoView({ behavior: 'smooth' });
+      shopRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [currentPage, category, searchTerm, scrollToShop]);
 
