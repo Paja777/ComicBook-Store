@@ -10,6 +10,7 @@
 
 .card-product {
   border-radius: 20px;
+
   background: linear-gradient(
     144deg,
     #fff -278.56%,
@@ -21,7 +22,7 @@
 
 .headline-hero {
   color: #fff;
-  font-size: 90px;
+  /* font-size: 190px; */
   font-style: normal;
   font-weight: 600;
   line-height: 140%; /* 100.8px */
