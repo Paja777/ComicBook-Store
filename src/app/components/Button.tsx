@@ -16,7 +16,7 @@ const Button = ({ name, size: { w, h }, onHandleButtonClick }: ButtonProps) => {
   );
   const handleClick = () => {
     setShowLoader((prev) => !prev);
-    setTimeout(() => setShowLoader(false), 2000)
+    setTimeout(() => setShowLoader(false), 2000);
   };
   return (
     <button
@@ -24,7 +24,8 @@ const Button = ({ name, size: { w, h }, onHandleButtonClick }: ButtonProps) => {
         onHandleButtonClick();
         handleClick();
       }}
-      className={`w-[${w}] h-${h} z-[100] gradient-bg  hover:scale-[1.05] text-primary font-normal sm:text-[8px] md:text-[13px]   py-1 px-2 rounded transition`}
+      className={`  p-0.5 z-[100] text-[4px] gradient-bg  hover:scale-[1.05] text-primary font-normal 
+      ss:p-1 ss:text-[6px] sm:py-0.5 sm:px-1.5 sm:text-[8px] md:text-[13px] md:w-[${w}] md:h-${h}  rounded transition`}
     >
       {buttonText}
     </button>

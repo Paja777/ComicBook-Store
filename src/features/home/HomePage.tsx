@@ -6,7 +6,7 @@ import Shop from "../shop/Shop";
 
 export default function HomePage() {
   return (
-    <div className="relative h-[3850px] ">
+    <div className="relative h-[4000px] ">
       <Hero />
       <Categories />
       <Shop pageScale={8}/>
