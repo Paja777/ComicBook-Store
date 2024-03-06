@@ -13,12 +13,12 @@ const Header = () => {
 
   return (
     <div className="flex flex-col relative">
-      <nav className="flex h-[100px] justify-between items-center mb-2 ">
+      <nav className="flex h-[60px] sm:h-[80px] md:h-[100px] justify-between items-center mb-2 ">
         <NavLink to={""}>
           <img
             src={logoipsum}
             alt="logo"
-            className="logo_gradient w-[100px] h-[100px] ml-20 mt-10"
+            className="logo_gradient h-[24px] ml-3 sm:ml-10 sm:h-[40px] md:w-[100px] md:h-[100px] md:mt-10"
           />
         </NavLink>
         <div className="flex flex-1 justify-end">

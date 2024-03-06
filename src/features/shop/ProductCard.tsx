@@ -16,40 +16,51 @@ const ProductCard = ({
   inCart,
 }: Product) => {
   const dispatch = useAppDispatch();
-  const defaultColor = favorite ? 'red' : 'gray';
-  const defaultButtonText = inCart ? 'Remove' : 'Add To Cart';
+  const defaultColor = favorite ? "red" : "gray";
+  const defaultButtonText = inCart ? "Remove" : "Add To Cart";
   const [currentColor, setCurrentColor] = useState(defaultColor);
   const [buttonText, setButtonText] = useState(defaultButtonText);
 
   const handleButtonClick = () => {
     dispatch(addToCart({ title, price, img, id, description, inCart }));
-    setTimeout(() => setButtonText((prev) => (prev === 'Add To Cart' ? 'Remove' : 'Add To Cart')), 2000);
+    setTimeout(
+      () =>
+        setButtonText((prev) =>
+          prev === "Add To Cart" ? "Remove" : "Add To Cart"
+        ),
+      2000
+    );
   };
 
   const handleIconClick = () => {
-    setCurrentColor((prev) => (prev === 'red' ? 'gray' : 'red'));
+    setCurrentColor((prev) => (prev === "red" ? "gray" : "red"));
     dispatch(addToFavorite({ title, price, img, id, description, favorite }));
   };
 
   return (
-    <div className="flex flex-col gap-1 card-product w-[200px] md:w-[300px] lg:w-[400px] h-[300px] md:h-[400px] justify-center items-center cursor-pointer">
+    <div
+      className="flex flex-col gap-1 card-product w-[200px] md:w-[300px] lg:w-[300px] h-[300px] 
+    md:h-[420px] justify-center items-center cursor-pointer relative"
+    >
       <img
-        src={img === '' ? image : img}
+        src={img === "" ? image : img}
         alt="cover"
-        className="w-[75%] h-[75%] rounded-[10px] mt-2"
+        className="w-[80%] h-[80%] rounded-[10px] mt-2"
       />
-      <div className="text-white font-poppins mt-2">{title}</div>
-      <div className="flex items-center mt-1">
+      <div className="text-white font-poppins mt-1 sm:text-[10px] md:text-[16px]">{title}</div>
+      <div className="text-secondary sm:text-[10px] md:text-[16px] font-light font-poppins">
+        {price}
+      </div>
+      <div className="absolute bottom-1 left-7 ">
         <FavoriteOutlinedIcon
           onClick={handleIconClick}
-          sx={{ color: currentColor, fontSize: '28px' }}
-          className="mr-2"
+          sx={{ color: currentColor, fontSize:'28px'}}
+          className="mr-2 "
         />
-        <div className="text-secondary text-[16px] font-light font-poppins">{price}</div>
       </div>
-      <div className="mt-2">
+      <div className="absolute bottom-1 right-2">
         <Button
-          size={{ w: '100px', h: '30px' }}
+          size={{ w: "90px", h: "30px" }}
           name={buttonText}
           onHandleButtonClick={handleButtonClick}
         />

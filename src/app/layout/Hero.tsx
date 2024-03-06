@@ -2,11 +2,11 @@ import coverImg from "../../assets/hero cover.png";
 import HeroHeadline from "../components/HeroHeadline";
 
 const Hero = () => (
-  <div className="relative h-[400px] md:h-[740px]">
+  <div className="relative h-[360px] sm:h-[450px] md:h-[740px]">
     <img
       src={coverImg}
       alt="spiderman"
-      className="absolute top-32 right-0 z-[0]"
+      className="absolute top-20 right-0 md:top-32 md:right-0 z-[0]"
     />
     <HeroHeadline />
     <div className="radial-hero absolute z-[3] left-100 top-0 translate-x-[135%] -translate-y-[40%]  opacity-60" />

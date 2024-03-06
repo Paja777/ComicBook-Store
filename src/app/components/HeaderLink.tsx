@@ -14,7 +14,7 @@ const HeaderLink = ({ path, image, name, setSearchBar }: HeaderLinkProps) => {
   };
 
   return (
-    <NavLink to={path} onClick={clickHandler} className={`mr-10 z-[6]`}>
+    <NavLink to={path} onClick={clickHandler} className={`mr-1 sm:mr-3 md:mr-6 lg:mr-10 z-[6]`}>
       {image === "" ? (
         <div className="font-poppins font-light text-[18px] text-white ">
           {name}
@@ -24,10 +24,10 @@ const HeaderLink = ({ path, image, name, setSearchBar }: HeaderLinkProps) => {
           <img
             src={image}
             alt={name}
-            className=" w-[30px] h-[30px] brightness-full-white"
+            className=" w-[20px] h-[20px] sm:w-[25px] sm:h-[25px] md:w-[30px] md:h-[30px] brightness-full-white"
           />
           {name !== "search" && (
-            <div className="flex justify-center items-center font-poppins text-[10px] absolute top-0 right-0 w-[15px] h-[15px] bg-red-500 rounded-full text-white">
+            <div className="flex justify-center items-center font-poppins text-[7px] md:text-[10px] absolute top-0 right-0 w-[10px] h-[10px] sm:w-[13px] sm:h-[13px] md:w-[15px] md:h-[15px] bg-red-500 rounded-full text-white">
               {itemCount}
             </div>
           )}
