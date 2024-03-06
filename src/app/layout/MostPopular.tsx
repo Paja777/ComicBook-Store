@@ -3,7 +3,7 @@ import SeeDetails from "../components/SeeDetails";
 
 
 const MostPopular = () => (
-  <div className="flex ml-2 h-[400px] ss:h-[500px] sm:h-[660px] md:h-[860px] flex-row gap-1 ss:ml-4 justify-center 
+  <div className="flex ml-2 h-[340px] ss:h-[500px] sm:h-[660px] md:h-[860px] flex-row gap-1 ss:ml-4 justify-center 
   items-center mt-0 my-0 ">
     <div className="w-[50%] z-[99] relative">
       <h1 className="headline-hero text-[20px] ss:text-[40px] sm:text-[60px] md:text-[80px] font-poppins ">

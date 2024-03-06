@@ -42,7 +42,7 @@ const ProductCard = ({
   return (
     <div
     onClick={() => navigate(`/${id}`)}
-      className="flex flex-col gap-1 card-product w-[100px] h-[180px] ss:w-[150px] ss:h-[240px] sm:w-[180px] 
+      className="flex flex-col gap-1 card-product w-[100px] h-[180px]  sm:w-[180px] 
     sm:h-[290px] md:w-[270px] md:h-[390px] lg:w-[300px]  
     lg:h-[420px] justify-center items-center cursor-pointer relative"
     >
