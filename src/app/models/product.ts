@@ -7,6 +7,7 @@ export interface Product {
     description: string,
     price: string,
     img: string,
+    role?:string,
     favorite?: false,
     inCart?: false,
 }

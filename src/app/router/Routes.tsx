@@ -6,6 +6,7 @@ import ProductDetails from "../../features/shop/ProductDetails";
 import Contact from "../../features/contact/Contact";
 import CartPage from "../../features/cart/CartPage";
 import FavoritesPage from "../../features/favorite/FavoritesPage";
+import SignupForm from "../../features/account/Signup";
 
 
 export const router = createBrowserRouter([
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
             {path: 'contact', element: <Contact />},
             {path: 'cart', element: <CartPage />},
             {path: 'favorite', element: <FavoritesPage />},
+            {path: 'signup', element: <SignupForm />},
 
 
         ]
