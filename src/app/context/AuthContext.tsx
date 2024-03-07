@@ -44,12 +44,13 @@ export const AuthContextProvider = ({ children } : PropsWithChildren<any>) => {
   const [state, dispatch] = useReducer(AuthReducer, {
     user: null,
   } );
+  
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user')!)
 
     if (user) {
-      dispatch({type: 'LOGIN', payload: user})
+      dispatch({type: 'LOGIN', payload: user.username})
     }
   }, [])
 

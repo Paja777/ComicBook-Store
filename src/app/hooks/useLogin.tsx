@@ -3,30 +3,25 @@ import agent from "../api/agent";
 import { useAuthContext } from "../context/AuthContext";
 
 interface SignupProps {
-  email: string;
   password: string;
   username: string;
 }
 
-export const useSignup = () => {
+export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch, user } = useAuthContext();
 
-  const signup = async ({ email, password, username }: SignupProps) => {
+  const login = async ({ password, username }: SignupProps) => {
     setIsLoading(true);
     setError(null);
 
     try {
       const response = await agent.requests.post(
-        "/user/signup",
+        "/user/login",
         {
-          email,
           password,
-          role: "user",
           username,
-          productFavorites: [],
-          productCart: [],
         },
         {
           headers: {
@@ -45,7 +40,7 @@ export const useSignup = () => {
     }
   };
   return {
-    signup,
+    login,
     isLoading,
     error,
   };

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSignup } from "../../app/hooks/useSignup";
+import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ const SignupForm = () => {
     password: "",
   });
   const { signup, isLoading, error } = useSignup();
+  const navigate = useNavigate();
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -22,10 +24,13 @@ const SignupForm = () => {
     // Handle form submission
     signup({ ...formData });
     console.log(formData);
+    if(!isLoading) {
+      navigate('/');
+    }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-md mx-auto mt-10 p-6 bg-secondary rounded-lg shadow-md">
       <h2 className="text-2xl font-semibold mb-6">Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -41,7 +46,7 @@ const SignupForm = () => {
             name="username"
             value={formData.username}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border bg-secondary rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Enter your username"
             required
           />
@@ -59,7 +64,7 @@ const SignupForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border bg-secondary rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Enter your email address"
             required
           />
@@ -77,7 +82,7 @@ const SignupForm = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border bg-secondary rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Enter your password"
             required
           />
@@ -89,6 +94,7 @@ const SignupForm = () => {
           Sign Up
         </button>
       </form>
+      <div>{error}</div>
     </div>
   );
 };
