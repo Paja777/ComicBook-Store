@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .discount-badge {
+    @apply grey-gradient w-full text-[10px] sm:text-[16px] h-[20px] md:w-[320px] bg-gray-500 rounded-full flex items-center justify-start text-white;
+  }
+}
+
 .grey-gradient {
   background: linear-gradient(125deg, #272727 0%, #11101d 100%);
 }
@@ -61,7 +67,15 @@
 }
 
 .gradient-bg {
-  background: linear-gradient(158deg, #DEF9FA -43.27%, #BEF3F5 -21.24%, #9DEDF0 12.19%, #7DE7EB 29.82%, #5CE1E6 51.94%, #33BBCF 90.29%)
+  background: linear-gradient(
+    158deg,
+    #def9fa -43.27%,
+    #bef3f5 -21.24%,
+    #9dedf0 12.19%,
+    #7de7eb 29.82%,
+    #5ce1e6 51.94%,
+    #33bbcf 90.29%
+  );
 }
 
 .text-gradient {

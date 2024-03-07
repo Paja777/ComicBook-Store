@@ -1,0 +1,14 @@
+
+@layer utilities {
+.discount-badge {
+    @apply grey-gradient w-full text-[10px] sm:text-[16px] h-[20px] md:w-[320px] bg-gray-500 rounded-full flex items-center justify-start text-white;
+  }
+  
+  .headline-text {
+    @apply headline-hero font-poppins mt-2 md:mt-0 text-3xl sm:text-[60px] md:text-[90px] lg:text-[90px] xl:text-[90px];
+  }
+  
+  .description-text {
+    @apply text-hero text-[14px] w-[75%] ss:w-[60%] sm:text-[16px] md:text-[22px] md:w-[40%] mt-5;
+  }
+}
