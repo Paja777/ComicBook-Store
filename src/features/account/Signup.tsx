@@ -70,7 +70,7 @@ const SignupForm = () => {
             id="email"
             name="email"
             value={formData.email}
-            onChan ge={handleChange}
+            onChange={handleChange}
             className="w-full px-4 py-2 border bg-secondary rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Enter your email address"
             required

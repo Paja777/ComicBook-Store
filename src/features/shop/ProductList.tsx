@@ -11,7 +11,7 @@ const ProductList = ({ products }: ProductListProps) => {
 
   return (
     <div className="relative">
-      <div className="flex flex-row flex-wrap gap-6 xs:gap-4 ss:gap-4 sm:gap-1 md:gap-8 justify-center items-center mt-10 relative z-[99]">
+      <div className="flex flex-row flex-wrap gap-6 xs:gap-4 ss:gap-4 sm:gap-1 md:gap-8 lg:gap-8 justify-center items-center mt-10 relative z-[99]">
         {products.map((product: Product) => (
           <ProductCard key={product.id} {...product} />
         ))}

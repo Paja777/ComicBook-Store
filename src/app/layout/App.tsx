@@ -4,7 +4,7 @@ import { ScrollProvider } from "../context/ScrollContext";
 
 function App() {
   return (
-    <div className="bg-primary w-full h-screen overflow-hidden">
+    <div className="bg-primary w-full h-auto overflow-hidden">
       <ScrollProvider>
       <Header />
       <Outlet />

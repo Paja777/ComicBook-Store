@@ -28,7 +28,7 @@ const ProductCard = ({
     setTimeout(
       () =>
         setButtonText((prev) =>
-          prev === "Add To Cart" ? "Remove" : "Add To Cart"
+          prev === "Cart ->" ? "Remove" : "Add To Cart"
         ),
       2000
     );
@@ -41,15 +41,15 @@ const ProductCard = ({
 
   return (
     <div
-    onClick={() => navigate(`/${id}`)}
+    
       className="flex flex-col gap-1 card-product w-[100px] h-[180px]  sm:w-[180px] 
-    sm:h-[290px] md:w-[270px] md:h-[390px] lg:w-[300px]  
-    lg:h-[420px] justify-center items-center cursor-pointer relative"
+    sm:h-[290px] md:w-[270px] md:h-[390px]  justify-center items-center relative"
     >
       <img
         src={img === "" ? image : img}
         alt="cover"
-        className="w-[80%] h-[80%] rounded-[10px] mt-2"
+        className="w-[80%] h-[80%] rounded-[10px] mt-2 cursor-pointer"
+        onClick={() => navigate(`/${id}`)}
       />
       <div className="text-white font-poppins mt-1 text-[6px] ss:text-[8px] sm:text-[10px] md:text-[16px]">{title}</div>
       <div className="text-secondary text-[6px] ss:text-[8px] sm:text-[10px] md:text-[16px] font-light font-poppins">
@@ -65,7 +65,7 @@ const ProductCard = ({
             lg: '32px', 
             xl: '36px', 
           },}}
-          className="mr-2 "
+          className="mr-2 cursor-pointer hover:scale-105"
         />
       </div>
       <div className="absolute bottom-0 sm:bottom-1 right-2">
