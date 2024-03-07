@@ -1,10 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLogin } from '../../app/hooks/useLogin';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../../app/context/AuthContext';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
+  const {login, isLoading, error} = useLogin();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: '/' } };
+  const {user} = useAuthContext();
+
+  // checking if user successfully logged in, returning user to location from
+  useEffect(() => {
+    if (user) {
+      navigate(from.pathname);
+    }
+  },[user])
 
   const handleChange = (e:any) => {
     const { name, value } = e.target;
@@ -16,7 +31,8 @@ const LoginForm = () => {
 
   const handleSubmit = (e:any) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to backend)
+    // Handle form submission 
+    login({...formData})
     console.log(formData);
   };
 
@@ -54,6 +70,10 @@ const LoginForm = () => {
           Login
         </button>
       </form>
+      <div className='text-blue-950 flex mt-2 justify-center items-center '>
+        <Link to={"/signup"}>signup</Link>
+        </div>
+      <div className='text-red-400 flex mt-2 justify-center items-center '>{error}</div>
     </div>
   );
 };

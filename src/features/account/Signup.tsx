@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSignup } from "../../app/hooks/useSignup";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../app/context/AuthContext";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,15 @@ const SignupForm = () => {
   });
   const { signup, isLoading, error } = useSignup();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: '/' } };
+  const {user} = useAuthContext();
+
+  useEffect(() => {
+    if (user) {
+      navigate(from.pathname);
+    }
+  },[user])
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -24,9 +34,6 @@ const SignupForm = () => {
     // Handle form submission
     signup({ ...formData });
     console.log(formData);
-    if(!isLoading) {
-      navigate('/');
-    }
   };
 
   return (
@@ -63,7 +70,7 @@ const SignupForm = () => {
             id="email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
+            onChan ge={handleChange}
             className="w-full px-4 py-2 border bg-secondary rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Enter your email address"
             required
@@ -82,7 +89,7 @@ const SignupForm = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full px-4 py-2 border bg-secondary rounded-md focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border bg-secondary focus:bg-secondary rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Enter your password"
             required
           />
@@ -94,7 +101,10 @@ const SignupForm = () => {
           Sign Up
         </button>
       </form>
-      <div>{error}</div>
+      <div className='text-blue-950 flex mt-2 justify-center items-center '>
+        <Link to={"/login"}>login</Link>
+        </div>
+      <div className='text-red-400 flex mt-2 justify-center items-center '>{error}</div>
     </div>
   );
 };

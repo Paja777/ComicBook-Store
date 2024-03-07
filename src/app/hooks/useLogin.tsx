@@ -10,7 +10,7 @@ interface SignupProps {
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { dispatch, user } = useAuthContext();
+  const { dispatch } = useAuthContext();
 
   const login = async ({ password, username }: SignupProps) => {
     setIsLoading(true);
@@ -33,10 +33,10 @@ export const useLogin = () => {
       localStorage.setItem("user", JSON.stringify({ ...response }));
       dispatch({ type: "LOGIN", payload: response.token });
       setIsLoading(false);
-      console.log(user);
+      
     } catch (error: any) {
       console.log(error.response.data);
-      setError(error);
+      setError(error.response.data.error);
     }
   };
   return {
