@@ -37,6 +37,7 @@ const LoginForm = () => {
   };
 
   return (
+    <div className="h-screen">
     <div className="max-w-md mx-auto mt-10 p-6 bg-secondary rounded-lg shadow-md">
       <h2 className="text-2xl font-semibold mb-6">Login</h2>
       <form onSubmit={handleSubmit}>
@@ -74,6 +75,7 @@ const LoginForm = () => {
         <Link to={"/signup"}>signup</Link>
         </div>
       <div className='text-red-400 flex mt-2 justify-center items-center '>{error}</div>
+    </div>
     </div>
   );
 };

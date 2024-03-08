@@ -8,6 +8,8 @@ import CartPage from "../../features/cart/CartPage";
 import FavoritesPage from "../../features/favorite/FavoritesPage";
 import SignupForm from "../../features/account/Signup";
 import LoginForm from "../../features/account/Login";
+import ProductForm from "../../features/adimin/AdminDashboard";
+import PricingTable from "../../features/adimin/PricingTable";
 
 
 export const router = createBrowserRouter([
@@ -23,6 +25,8 @@ export const router = createBrowserRouter([
             {path: 'favorite', element: <FavoritesPage />},
             {path: 'signup', element: <SignupForm />},
             {path: 'login', element: <LoginForm />},
+            {path: 'admin', element: <ProductForm />},
+            {path: 'table', element: <PricingTable />},
 
 
         ]
