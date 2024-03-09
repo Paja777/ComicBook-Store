@@ -8,8 +8,8 @@ import CartPage from "../../features/cart/CartPage";
 import FavoritesPage from "../../features/favorite/FavoritesPage";
 import SignupForm from "../../features/account/Signup";
 import LoginForm from "../../features/account/Login";
-import ProductForm from "../../features/adimin/AdminDashboard";
-import PricingTable from "../../features/adimin/PricingTable";
+import ProductForm from "../../features/adimin/ProductForm";
+import PricingTable from "../../features/adimin/Table";
 
 
 export const router = createBrowserRouter([
