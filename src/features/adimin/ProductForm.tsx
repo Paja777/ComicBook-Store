@@ -1,6 +1,7 @@
 import  { useState } from "react";
 import { useAuthContext } from "../../app/context/AuthContext";
 import agent from "../../app/api/agent";
+import NotFound from "../../app/error/NotFound";
 
 const ProductForm = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,9 @@ const ProductForm = () => {
     rating: "",
   });
   const { user } = useAuthContext();
+  console.log(user)
+
+  if (!user || user.role !== "admin") return <NotFound />
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -25,7 +29,7 @@ const ProductForm = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     // Handle form submission
-    console.log(formData)
+    console.log(formData);
     try {
       const response = await agent.requests.post(
         "/product",
@@ -34,7 +38,7 @@ const ProductForm = () => {
         },
         {
           headers: {
-            authorization: `Bearer ${user}`,
+            authorization: `Bearer ${user.token}`,
           },
         }
       );

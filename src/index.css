@@ -9,7 +9,7 @@
     @apply grey-gradient w-full text-[10px] sm:text-[16px] h-[20px] md:w-[320px] bg-gray-500 rounded-full flex items-center justify-start text-white;
   }
   .table-field {
-    @apply border border-gray-300 px-4 py-2 items-center justify-center
+    @apply border border-gray-300 px-4 py-2 text-center
   }
 }
 

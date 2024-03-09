@@ -23,7 +23,6 @@ export const useSignup = () => {
         {
           email,
           password,
-          role: "user",
           username,
           productFavorites: [],
           productCart: [],

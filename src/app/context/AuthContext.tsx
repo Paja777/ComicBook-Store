@@ -1,14 +1,26 @@
-import { createContext, useReducer, useContext, PropsWithChildren, useEffect } from "react";
-
+import {
+  createContext,
+  useReducer,
+  useContext,
+  PropsWithChildren,
+  useEffect,
+} from "react";
 
 interface AuthContextValue {
-  user: { email: string, token: string} | null;
+  user: {
+    email: string;
+    token: string;
+    role: string;
+    productCart: string[];
+    productFavorites: string[];
+    username: string;
+  } | null;
   dispatch: React.Dispatch<ActionType>;
 }
 
 interface LoginAction {
   type: "LOGIN";
-  payload: string; 
+  payload: string;
 }
 
 interface LogoutAction {
@@ -17,7 +29,9 @@ interface LogoutAction {
 
 type ActionType = LoginAction | LogoutAction;
 
-export const AuthContext = createContext<AuthContextValue | undefined>(undefined);
+export const AuthContext = createContext<AuthContextValue | undefined>(
+  undefined
+);
 
 export function useAuthContext() {
   const context = useContext(AuthContext);
@@ -29,7 +43,7 @@ export function useAuthContext() {
   return context;
 }
 
-export const AuthReducer = (state: any, action : ActionType) => {
+export const AuthReducer = (state: any, action: ActionType) => {
   switch (action.type) {
     case "LOGIN":
       return { user: action.payload };
@@ -40,20 +54,18 @@ export const AuthReducer = (state: any, action : ActionType) => {
   }
 };
 
-export const AuthContextProvider = ({ children } : PropsWithChildren<any>) => {
+export const AuthContextProvider = ({ children }: PropsWithChildren<any>) => {
   const [state, dispatch] = useReducer(AuthReducer, {
     user: null,
-  } );
-  
+  });
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user')!)
+    const user = JSON.parse(localStorage.getItem("user")!);
 
     if (user) {
-      dispatch({type: 'LOGIN', payload: user.token})
+      dispatch({ type: "LOGIN", payload: user });
     }
-  }, [])
-
+  }, []);
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
