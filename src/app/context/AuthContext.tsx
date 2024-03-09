@@ -50,7 +50,7 @@ export const AuthContextProvider = ({ children } : PropsWithChildren<any>) => {
     const user = JSON.parse(localStorage.getItem('user')!)
 
     if (user) {
-      dispatch({type: 'LOGIN', payload: user.username})
+      dispatch({type: 'LOGIN', payload: user.token})
     }
   }, [])
 

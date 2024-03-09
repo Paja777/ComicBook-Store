@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { useAuthContext } from '../../app/context/AuthContext';
+import  { useState } from "react";
+import { useAuthContext } from "../../app/context/AuthContext";
+import agent from "../../app/api/agent";
 
 const ProductForm = () => {
   const [formData, setFormData] = useState({
-    title: '',
-    image: '',
-    category: '',
-    price: '',
-    inStock: '',
-    description: '',
-    rating: ''
+    title: "",
+    image: "",
+    category: "",
+    price: "",
+    stock: "",
+    description: "",
+    rating: "",
   });
   const { user } = useAuthContext();
 
@@ -17,14 +18,30 @@ const ProductForm = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    // Handle form submission 
-    console.log(formData);
+    // Handle form submission
+    console.log(formData)
+    try {
+      const response = await agent.requests.post(
+        "/product",
+        {
+          ...formData,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${user}`,
+          },
+        }
+      );
+      console.log(response);
+    } catch (error: any) {
+      console.log(error.response.data);
+    }
   };
 
   return (
@@ -32,7 +49,12 @@ const ProductForm = () => {
       <h2 className="text-2xl font-semibold mb-6">Add Product</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="title" className="block text-gray-700 font-medium mb-2">Title</label>
+          <label
+            htmlFor="title"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Title
+          </label>
           <input
             type="text"
             id="title"
@@ -45,7 +67,12 @@ const ProductForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="image" className="block text-gray-700 font-medium mb-2">Image URL</label>
+          <label
+            htmlFor="image"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Image URL
+          </label>
           <input
             type="text"
             id="image"
@@ -58,7 +85,12 @@ const ProductForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="category" className="block text-gray-700 font-medium mb-2">Category</label>
+          <label
+            htmlFor="category"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Category
+          </label>
           <input
             type="text"
             id="category"
@@ -71,7 +103,12 @@ const ProductForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="price" className="block text-gray-700 font-medium mb-2">Price</label>
+          <label
+            htmlFor="price"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Price
+          </label>
           <input
             type="number"
             id="price"
@@ -84,12 +121,17 @@ const ProductForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="inStock" className="block text-gray-700 font-medium mb-2">In Stock</label>
+          <label
+            htmlFor="inStock"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            In Stock
+          </label>
           <input
             type="number"
-            id="inStock"
-            name="inStock"
-            value={formData.inStock}
+            id="stock"
+            name="stock"
+            value={formData.stock}
             onChange={handleChange}
             className="w-full px-4 py-2 border bg-white rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Enter number of items in stock"
@@ -97,7 +139,12 @@ const ProductForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="description" className="block text-gray-700 font-medium mb-2">Description</label>
+          <label
+            htmlFor="description"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Description
+          </label>
           <textarea
             id="description"
             name="description"
@@ -110,7 +157,12 @@ const ProductForm = () => {
           ></textarea>
         </div>
         <div className="mb-6">
-          <label htmlFor="rating" className="block text-gray-700 font-medium mb-2">Rating</label>
+          <label
+            htmlFor="rating"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Rating
+          </label>
           <input
             type="number"
             id="rating"
@@ -122,7 +174,10 @@ const ProductForm = () => {
             required
           />
         </div>
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300">
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300"
+        >
           Add Product
         </button>
       </form>
