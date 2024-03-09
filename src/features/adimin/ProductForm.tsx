@@ -1,7 +1,6 @@
 import  { useState } from "react";
 import { useAuthContext } from "../../app/context/AuthContext";
 import agent from "../../app/api/agent";
-import NotFound from "../../app/error/NotFound";
 
 const ProductForm = () => {
   const [formData, setFormData] = useState({
@@ -15,8 +14,6 @@ const ProductForm = () => {
   });
   const { user } = useAuthContext();
   console.log(user)
-
-  if (!user || user.role !== "admin") return <NotFound />
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -38,7 +35,7 @@ const ProductForm = () => {
         },
         {
           headers: {
-            authorization: `Bearer ${user.token}`,
+            authorization: `Bearer ${user?.token}`,
           },
         }
       );
@@ -129,7 +126,7 @@ const ProductForm = () => {
             htmlFor="inStock"
             className="block text-gray-700 font-medium mb-2"
           >
-            In Stock
+            stock
           </label>
           <input
             type="number"

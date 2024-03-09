@@ -1,27 +1,12 @@
-import { useEffect, useState } from "react";
-import agent from "../../app/api/agent";
-import { useAuthContext } from "../../app/context/AuthContext";
+import { ProductData } from "./AdminDashboard";
 
-const PricingTable = () => {
-  const { user } = useAuthContext();
-  const [tableDataArray, setTableDataArray] = useState<any[]>([]);
+
+interface DataTableProps {
+  dataArray: ProductData[] | undefined;
+}
+
+const DataTable = ({dataArray} : DataTableProps) => {
   
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await agent.requests.get("/data", undefined, {
-          Authorization: `Bearer ${user!.token}`,
-        });
-        console.log(data)
-        setTableDataArray(data); // Update state with fetched array data
-      } catch (error: any) {
-        console.log('An error occurred:', error.response.data);
-      }
-    };
-
-    fetchData(); // Invoke fetchData inside useEffect
-
-  }, [user]); 
   return (
     <div className="bg-primary h-screen">
     <div className="max-w-3xl mx-auto mt-10">
@@ -37,17 +22,17 @@ const PricingTable = () => {
             <th className="table-field">Y$</th>
           </tr>
         </thead>
-        {tableDataArray.map((data : any) => (
+        {dataArray?.map((data : any) => (
 
         <tbody key={data._id}>
           <tr className="bg-white">
             <td className="table-field">{data.productId}</td>
             <td className="table-field">{data.title}</td>
             <td className="table-field">{data.price}</td>
-            <td className="table-field">{data.soldMon}</td>
-            <td className="table-field">{data.soldYr}</td>
-            <td className="table-field">{data.M$}</td>
-            <td className="table-field">{data.Y$}</td>
+            <td className="table-field">{data.soldMon}%</td>
+            <td className="table-field">{data.soldYr}%</td>
+            <td className="table-field">${data.M$}</td>
+            <td className="table-field">${data.Y$}</td>
           </tr>
         </tbody>
 
@@ -58,4 +43,4 @@ const PricingTable = () => {
   );
 };
 
-export default PricingTable;
+export default DataTable;
