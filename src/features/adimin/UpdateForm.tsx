@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useAuthContext } from "../../app/context/AuthContext";
 import agent from "../../app/api/agent";
 import ProductForm from "./ProductForm";
 

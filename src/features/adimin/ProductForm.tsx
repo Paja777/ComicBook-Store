@@ -4,7 +4,7 @@ import agent from "../../app/api/agent";
 import { Product } from "../../app/models/product";
 
 interface ProductFormProps {
-  productToUpdate: Product | undefined;
+  productToUpdate?: Product | undefined;
 }
 
 const ProductForm = ({ productToUpdate }: ProductFormProps) => {
@@ -59,6 +59,7 @@ const ProductForm = ({ productToUpdate }: ProductFormProps) => {
         );
         console.log(response);
       }
+      alert("Opetation successfull")
     } catch (error: any) {
       console.log(error.response.data);
     }
