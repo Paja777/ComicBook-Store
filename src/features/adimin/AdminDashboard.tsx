@@ -72,7 +72,7 @@ const AdminDashboard = () => {
       <div className="mt-0">
         {!showForm && <DataTable dataArray={tableDataArray} />}
       </div>
-      <div>{showForm && <UpdateForm productIdArray={productIds} />} </div>
+      <div>{showForm && <UpdateForm productIds={productIds} />} </div>
     </div>
   );
 };

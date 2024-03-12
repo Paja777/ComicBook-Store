@@ -1,71 +1,43 @@
 import { useState } from "react";
 import { useAuthContext } from "../../app/context/AuthContext";
 import agent from "../../app/api/agent";
+import ProductForm from "./ProductForm";
 
 interface ProductFormProps {
-    productIdArray: string[] | undefined;
+  productIds: string[] | undefined;
 }
 
-const UpdateForm = ({productIdArray} : ProductFormProps) => {
-  const [formData, setFormData] = useState({
-    title: "",
-    image: "",
-    category: "",
-    price: "",
-    stock: "",
-    description: "",
-    rating: "",
-  });
-
+const UpdateForm = ({ productIds }: ProductFormProps) => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const { user } = useAuthContext();
-
- 
-
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const [showForm, setShowForm] = useState(true);
+  const [productToUpdate, setProductToUpdate] = useState<any>({});
 
   const handleDropdownClick = () => {
     setShowDropdown(!showDropdown);
   };
 
-  const handleDropdownItemSelect = (e: any) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-    setShowDropdown(false);
-  };
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+  const handleDropdownItemSelect = async (id: string) => {
+    // extract product from db
+    setShowForm(false);
     try {
-      const response = await agent.requests.patch("/product", formData, {
-        headers: {
-          authorization: `Bearer ${user?.token}`,
-        },
-      });
+      const response = await agent.requests.get(`/product/${id}`);
       console.log(response);
-    } catch (error: any) {
-      console.log(error.response.data);
+      setProductToUpdate(response);
+    } catch (error) {
+      console.log(error);
     }
+    // setProductToUpdate(productId)
+    setShowDropdown(false);
+    setShowForm(true);
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md relative">
       <h2 className="text-2xl font-semibold mb-6">Update Product</h2>
-      <div className="relative mb-4">
+      <div className=" mb-4">
         <button
           onClick={handleDropdownClick}
-          className="absolute right-0 top-0 px-2 py-1 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 focus:outline-none"
+          className="absolute right-10 top-7 px-2 py-1 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 focus:outline-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -83,8 +55,8 @@ const UpdateForm = ({productIdArray} : ProductFormProps) => {
           </svg>
         </button>
         {showDropdown && (
-          <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1">
-            {productIdArray?.map((productId) => (
+          <div className="absolute left-5 z-10 w-full bg-white border border-gray-300 rounded-md mt-1">
+            {productIds?.map((productId) => (
               <div
                 key={productId}
                 onClick={() => handleDropdownItemSelect(productId)}
@@ -96,9 +68,8 @@ const UpdateForm = ({productIdArray} : ProductFormProps) => {
           </div>
         )}
       </div>
-      <form onSubmit={handleSubmit}>
-        {/* Rest of your form */}
-      </form>
+      {/* Rest of form */}
+      {showForm && <ProductForm productToUpdate={productToUpdate} />}
     </div>
   );
 };

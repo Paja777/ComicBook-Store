@@ -1,13 +1,13 @@
 
 
 export interface Product {
-    id: string,
+    _id: string,
     title: string,
-    category: "superhero" | "manga" | "graphic_novel";
+    category: string;
     description: string,
     price: string,
-    img: string,
-    role?:string,
-    favorite?: false,
-    inCart?: false,
+    img?: string,
+    rating: number,
+    stock?: number,
+     
 }

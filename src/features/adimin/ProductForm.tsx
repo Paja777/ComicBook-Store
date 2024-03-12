@@ -1,19 +1,23 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useAuthContext } from "../../app/context/AuthContext";
 import agent from "../../app/api/agent";
+import { Product } from "../../app/models/product";
 
-const ProductForm = () => {
+interface ProductFormProps {
+  productToUpdate: Product | undefined;
+}
+
+const ProductForm = ({ productToUpdate }: ProductFormProps) => {
   const [formData, setFormData] = useState({
-    title: "",
+    title: productToUpdate ? productToUpdate.title : "",
     image: "",
-    category: "",
-    price: "",
-    stock: "",
-    description: "",
-    rating: "",
+    category: productToUpdate ? productToUpdate.category : "",
+    price: productToUpdate ? productToUpdate.price : "",
+    stock: productToUpdate ? productToUpdate.stock : "",
+    description: productToUpdate ? productToUpdate.description : "",
+    rating: productToUpdate ? productToUpdate.rating : "",
   });
   const { user } = useAuthContext();
-  console.log(user)
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -23,23 +27,38 @@ const ProductForm = () => {
     });
   };
 
+  // Handle form submission
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
     try {
-      const response = await agent.requests.post(
-        "/product",
-        {
-          ...formData,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${user?.token}`,
+      // update or post product 
+      if (productToUpdate) {
+        const response = await agent.requests.patch(
+          `/product/${productToUpdate._id}`,
+          {
+            ...formData,
           },
-        }
-      );
-      console.log(response);
+          {
+            headers: {
+              authorization: `Bearer ${user?.token}`,
+            },
+          }
+          );
+          console.log(response);
+      } else {
+        const response = await agent.requests.post(
+          "/product",
+          {
+            ...formData,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${user?.token}`,
+            },
+          }
+        );
+        console.log(response);
+      }
     } catch (error: any) {
       console.log(error.response.data);
     }
@@ -179,7 +198,7 @@ const ProductForm = () => {
           type="submit"
           className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300"
         >
-          Add Product
+          {productToUpdate ? `Update Product` : `Add Product`}
         </button>
       </form>
     </div>

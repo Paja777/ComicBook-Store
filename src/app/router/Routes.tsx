@@ -8,7 +8,6 @@ import CartPage from "../../features/cart/CartPage";
 import FavoritesPage from "../../features/favorite/FavoritesPage";
 import SignupForm from "../../features/account/Signup";
 import LoginForm from "../../features/account/Login";
-import PricingTable from "../../features/adimin/Table";
 import AdminDashboard from "../../features/adimin/AdminDashboard";
 
 
@@ -27,7 +26,7 @@ export const router = createBrowserRouter([
       { path: "signup", element: <SignupForm /> },
       { path: "login", element: <LoginForm /> },
       { path: "admin", element: <AdminDashboard /> },
-      { path: "table", element: <PricingTable /> },
+      
     ],
   },
 ]);
