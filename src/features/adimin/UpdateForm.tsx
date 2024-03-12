@@ -8,7 +8,7 @@ interface ProductFormProps {
 
 const UpdateForm = ({ productIds }: ProductFormProps) => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
   const [productToUpdate, setProductToUpdate] = useState<any>({});
 
   const handleDropdownClick = () => {

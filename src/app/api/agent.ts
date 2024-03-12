@@ -21,7 +21,7 @@ const requests = {
     axios.post(url, body, headers).then(responseBody),
   patch: (url: string, body: {}, headers: {}) =>
     axios.patch(url, body, headers).then(responseBody),
-  delete: (url: string) => axios.delete(url).then(responseBody),
+  delete: (url: string, headers: {}) => axios.delete(url, headers).then(responseBody),
 };
 
 const adCatalog = {
