@@ -22,7 +22,7 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
     // add product to productCart array (user property) 
     try {
       const response = await agent.requests.patch(
-        `/user/update`,
+        `/user/update/cart`,
          {  productId: "65ec7a7e0ea358c76ac958e7", amount: 1},
         {
           headers: {authorization: `Bearer ${user!.token}`},
@@ -50,12 +50,14 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
   };
 
   const handleIconClick = async() => {
+    // unregistered user cannot add something to favorites
     if(!user) {navigate("/signup"); return;}
+
     setCurrentColor((prev) => (prev === "red" ? "gray" : "red"));
     try {
       const response = await agent.requests.patch(
-        `/user/update`,
-         {  productId: "65ec7a7e0ea358c76ac958e7", amount: 1},
+        `/user/update/favorites`,
+         {  productId: "65ec7a7e0ea358c76ac958e7"},
         {
           headers: {authorization: `Bearer ${user!.token}`},
         }
@@ -63,7 +65,7 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
       // update local storage user 
       const userData = JSON.parse(localStorage.getItem("user")!)
       if (userData && userData.productCart) {
-        userData.productCart.push({productId: "65ec7a7e0ea358c76ac958e7", amount: 1});
+        userData.productFavorites.push({productId: "65ec7a7e0ea358c76ac958e7"});
         localStorage.setItem("user", JSON.stringify(userData));
         // update context user
         dispatch({ type: "LOGIN", payload: userData });

@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { NavLink as Link } from "../models/navlink";
-import { useAppSelector } from "../store/ConfigureStore";
 import { useAuthContext } from "../context/AuthContext";
 
 interface HeaderLinkProps extends Link {
@@ -8,9 +7,8 @@ interface HeaderLinkProps extends Link {
 }
 
 const HeaderLink = ({ path, image, name, setSearchBar }: HeaderLinkProps) => {
-  const { cartItems, favorites } = useAppSelector((state) => state.account);
   const { user } = useAuthContext();
-  const itemCount = name === "favorite" ? favorites.length : user?.productCart.length;
+  const itemCount = name === "favorite" ? user?.productFavorites.length : user?.productCart.length;
   const clickHandler = () => {
     if (name === "search") setSearchBar(true);
   };
