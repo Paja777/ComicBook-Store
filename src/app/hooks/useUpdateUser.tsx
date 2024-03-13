@@ -47,6 +47,7 @@ export const useUpdateUser = () => {
       console.log(response);
     } catch (error: any) {
       console.log(error.response.data);
+      setError(error.response.data);
     }
   };
 
@@ -83,6 +84,7 @@ export const useUpdateUser = () => {
       console.log(response);
     } catch (error: any) {
       console.log(error.response.data);
+      setError(error.response.data);
     }
   };
 
@@ -113,6 +115,7 @@ export const useUpdateUser = () => {
       console.log(response);
     } catch (error: any) {
       console.log(error.response.data);
+      setError(error.response.data);
     }
   };
   return {

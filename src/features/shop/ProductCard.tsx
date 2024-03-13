@@ -1,6 +1,7 @@
 import agent from "../../app/api/agent";
 import Button from "../../app/components/Button";
 import { useAuthContext } from "../../app/context/AuthContext";
+import { useUpdateUser } from "../../app/hooks/useUpdateUser";
 import { Product } from "../../app/models/product";
 import image from "../../assets/onepiece.svg";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
@@ -20,6 +21,9 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
     ? "Remove"
     : "Add To Cart";
   const [buttonText, setButtonText] = useState(defaultButtonText);
+  // custom hook for handling cart and favorite products
+  const { addToCart, removeFrom, addToFavorites, error } =
+    useUpdateUser();
 
   const handleButtonClick = async () => {
     // unregistered user cannot put something in cart
@@ -27,44 +31,20 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
       navigate("/signup");
       return;
     }
-    // add product to productCart array (user property)
-    try {
-      const response = await agent.requests.patch(
-        `/user/addToCart`,
-        { productId: "65ec7a7e0ea358c76ac958e7", amount: 1 },
-        {
-          headers: { authorization: `Bearer ${user!.token}` },
-        }
-      );
-      // update local storage user
-      const userData = JSON.parse(localStorage.getItem("user")!);
-      if (userData) {
-        const index = userData.productCart.findIndex(
-          (u: any) => u.productId === "65ec7a7e0ea358c76ac958e7"
-          );
-          console.log(index)
-          if (index !== -1) {
-            userData.productCart[index].amount++;
-            console.log("update local storage", userData.productCart[index])
-          } else {
-            userData.productCart.push({
-              productId: "65ec7a7e0ea358c76ac958e7",
-              amount: 1,
-            });
-            console.log("update local storage");
-        }
-        localStorage.setItem("user", JSON.stringify(userData));
-        // update context user
-        dispatch({ type: "LOGIN", payload: userData });
-      }
-      console.log(response);
-    } catch (error: any) {
-      console.log(error.response.data);
+    // check if action is add or remove
+    if (buttonText === "Add to Cart") {
+      // add product to cart
+      addToCart({ id: "65ec7a7e0ea358c76ac958e7" });
+    } else {
+      // remove product from cart
+      removeFrom({ place: "cart", id: "65ec7a7e0ea358c76ac958e7" });
     }
+    if(error) alert(error);
+    // changing text with delay, loader
     setTimeout(
       () =>
         setButtonText((prev) =>
-          prev === "Cart ->" ? "Remove" : "Add To Cart"
+          prev === "Add To Cart" ? "Remove" : "Add To Cart"
         ),
       2000
     );
@@ -76,30 +56,13 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
       navigate("/signup");
       return;
     }
-
-    setCurrentColor((prev) => (prev === "red" ? "gray" : "red"));
-    try {
-      const response = await agent.requests.patch(
-        `/user/update/favorites`,
-        { productId: "3ed64501-5585-7269-c14c-b9808f89c24d" },
-        {
-          headers: { authorization: `Bearer ${user!.token}` },
-        }
-      );
-      // update local storage user
-      const userData = JSON.parse(localStorage.getItem("user")!);
-      if (userData && userData.productCart) {
-        userData.productFavorites.push({
-          productId: "3ed64501-5585-7269-c14c-b9808f89c24d",
-        });
-        localStorage.setItem("user", JSON.stringify(userData));
-        // update context user
-        dispatch({ type: "LOGIN", payload: userData });
-      }
-      console.log(response);
-    } catch (error: any) {
-      console.log(error.response.data);
+    if (currentColor === "gray") {
+      addToFavorites({ id: "65ec7a7e0ea358c76ac958e7" });
+    } else {
+      removeFrom({ place: "favorites", id: "65ec7a7e0ea358c76ac958e7" });
     }
+    if(error) alert(error);
+    setCurrentColor((prev) => (prev === "red" ? "gray" : "red"));
   };
 
   return (
