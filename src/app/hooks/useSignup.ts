@@ -35,7 +35,7 @@ export const useSignup = () => {
       );
       console.log("From db:", response);
       localStorage.setItem("user", JSON.stringify({ ...response }));
-      dispatch({ type: "LOGIN", payload: response.token });
+      dispatch({ type: "LOGIN", payload: response });
       setIsLoading(false);
     } catch (error: any) {
       console.log(error.response.data);
