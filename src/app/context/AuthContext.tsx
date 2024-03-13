@@ -11,8 +11,8 @@ interface AuthContextValue {
     email: string;
     token: string;
     role: string;
-    productCart: string[];
-    productFavorites: string[];
+    productCart: {productId: string, amount: number}[];
+    productFavorites: {productId: string}[];
     username: string;
   } | null;
   dispatch: React.Dispatch<ActionType>;

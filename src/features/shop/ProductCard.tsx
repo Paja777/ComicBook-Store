@@ -9,36 +9,57 @@ import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ title, price, img, _id, description }: Product) => {
   const navigate = useNavigate();
-  // const defaultColor = favorite ? "red" : "gray";
-  // const defaultButtonText = inCart ? "Remove" : "Add To Cart";
-  const [currentColor, setCurrentColor] = useState("gray");
-  const [buttonText, setButtonText] = useState("Add to Cart");
   const { user, dispatch } = useAuthContext();
-  console.log(user);
+  // if product is in user's favorites it will be red color
+  const defaultColor = user?.productFavorites.find((p) => p.productId === _id)
+    ? "red"
+    : "gray";
+  const [currentColor, setCurrentColor] = useState(defaultColor);
+  // if product is in cart button text will be 'remove'
+  const defaultButtonText = user?.productCart.find((p) => p.productId === _id)
+    ? "Remove"
+    : "Add To Cart";
+  const [buttonText, setButtonText] = useState(defaultButtonText);
 
   const handleButtonClick = async () => {
     // unregistered user cannot put something in cart
-    if (!user) {navigate("/signup"); return;}
-    // add product to productCart array (user property) 
+    if (!user) {
+      navigate("/signup");
+      return;
+    }
+    // add product to productCart array (user property)
     try {
       const response = await agent.requests.patch(
-        `/user/update/cart`,
-         {  productId: "65ec7a7e0ea358c76ac958e7", amount: 1},
+        `/user/addTo/cart`,
+        { productId: "65ec7a7e0ea358c76ac958e7", amount: 1 },
         {
-          headers: {authorization: `Bearer ${user!.token}`},
+          headers: { authorization: `Bearer ${user!.token}` },
         }
       );
-      // update local storage user 
-      const userData = JSON.parse(localStorage.getItem("user")!)
-      if (userData && userData.productCart) {
-        userData.productCart.push({productId: "65ec7a7e0ea358c76ac958e7", amount: 1});
+      // update local storage user
+      const userData = JSON.parse(localStorage.getItem("user")!);
+      if (userData) {
+        const index = userData.productCart.findIndex(
+          (u: any) => u.productId === "65ec7a7e0ea358c76ac958e7"
+          );
+          console.log(index)
+          if (index !== -1) {
+            userData.productCart[index].amount++;
+            console.log("update local storage", userData.productCart[index])
+          } else {
+            userData.productCart.push({
+              productId: "65ec7a7e0ea358c76ac958e7",
+              amount: 1,
+            });
+            console.log("update local storage");
+        }
         localStorage.setItem("user", JSON.stringify(userData));
         // update context user
         dispatch({ type: "LOGIN", payload: userData });
       }
       console.log(response);
     } catch (error: any) {
-      console.log(error.response.data)
+      console.log(error.response.data);
     }
     setTimeout(
       () =>
@@ -49,30 +70,35 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
     );
   };
 
-  const handleIconClick = async() => {
+  const handleIconClick = async () => {
     // unregistered user cannot add something to favorites
-    if(!user) {navigate("/signup"); return;}
+    if (!user) {
+      navigate("/signup");
+      return;
+    }
 
     setCurrentColor((prev) => (prev === "red" ? "gray" : "red"));
     try {
       const response = await agent.requests.patch(
         `/user/update/favorites`,
-         {  productId: "65ec7a7e0ea358c76ac958e7"},
+        { productId: "3ed64501-5585-7269-c14c-b9808f89c24d" },
         {
-          headers: {authorization: `Bearer ${user!.token}`},
+          headers: { authorization: `Bearer ${user!.token}` },
         }
       );
-      // update local storage user 
-      const userData = JSON.parse(localStorage.getItem("user")!)
+      // update local storage user
+      const userData = JSON.parse(localStorage.getItem("user")!);
       if (userData && userData.productCart) {
-        userData.productFavorites.push({productId: "65ec7a7e0ea358c76ac958e7"});
+        userData.productFavorites.push({
+          productId: "3ed64501-5585-7269-c14c-b9808f89c24d",
+        });
         localStorage.setItem("user", JSON.stringify(userData));
         // update context user
         dispatch({ type: "LOGIN", payload: userData });
       }
       console.log(response);
     } catch (error: any) {
-      console.log(error.response.data)
+      console.log(error.response.data);
     }
   };
 
