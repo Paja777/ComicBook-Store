@@ -30,7 +30,7 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
     // add product to productCart array (user property)
     try {
       const response = await agent.requests.patch(
-        `/user/addTo/cart`,
+        `/user/addToCart`,
         { productId: "65ec7a7e0ea358c76ac958e7", amount: 1 },
         {
           headers: { authorization: `Bearer ${user!.token}` },
