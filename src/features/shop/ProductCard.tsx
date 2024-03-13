@@ -2,32 +2,40 @@ import agent from "../../app/api/agent";
 import Button from "../../app/components/Button";
 import { useAuthContext } from "../../app/context/AuthContext";
 import { Product } from "../../app/models/product";
-import { useAppDispatch } from "../../app/store/ConfigureStore";
 import image from "../../assets/onepiece.svg";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ title, price, img, _id, description }: Product) => {
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   // const defaultColor = favorite ? "red" : "gray";
   // const defaultButtonText = inCart ? "Remove" : "Add To Cart";
-  const [currentColor, setCurrentColor] = useState("red");
-  const [buttonText, setButtonText] = useState("remove");
-  const { user } = useAuthContext();
-  console.log(user)
+  const [currentColor, setCurrentColor] = useState("gray");
+  const [buttonText, setButtonText] = useState("Add to Cart");
+  const { user, dispatch } = useAuthContext();
+  console.log(user);
 
   const handleButtonClick = async () => {
-    // dispatch(addToCart({ title, price, img, _id, description }));
+    // unregistered user cannot put something in cart
+    if (!user) {navigate("/signup"); return;}
+    // add product to productCart array (user property) 
     try {
       const response = await agent.requests.patch(
         `/user/update`,
-         {  _id},
+         {  productId: "65ec7a7e0ea358c76ac958e7", amount: 1},
         {
           headers: {authorization: `Bearer ${user!.token}`},
         }
       );
+      // update local storage user 
+      const userData = JSON.parse(localStorage.getItem("user")!)
+      if (userData && userData.productCart) {
+        userData.productCart.push({productId: "65ec7a7e0ea358c76ac958e7", amount: 1});
+        localStorage.setItem("user", JSON.stringify(userData));
+        // update context user
+        dispatch({ type: "LOGIN", payload: userData });
+      }
       console.log(response);
     } catch (error: any) {
       console.log(error.response.data)
@@ -41,9 +49,29 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
     );
   };
 
-  const handleIconClick = () => {
+  const handleIconClick = async() => {
+    if(!user) {navigate("/signup"); return;}
     setCurrentColor((prev) => (prev === "red" ? "gray" : "red"));
-    // dispatch(addToFavorite({ title, price, img, _id, description, favorite }));
+    try {
+      const response = await agent.requests.patch(
+        `/user/update`,
+         {  productId: "65ec7a7e0ea358c76ac958e7", amount: 1},
+        {
+          headers: {authorization: `Bearer ${user!.token}`},
+        }
+      );
+      // update local storage user 
+      const userData = JSON.parse(localStorage.getItem("user")!)
+      if (userData && userData.productCart) {
+        userData.productCart.push({productId: "65ec7a7e0ea358c76ac958e7", amount: 1});
+        localStorage.setItem("user", JSON.stringify(userData));
+        // update context user
+        dispatch({ type: "LOGIN", payload: userData });
+      }
+      console.log(response);
+    } catch (error: any) {
+      console.log(error.response.data)
+    }
   };
 
   return (

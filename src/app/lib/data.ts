@@ -39,166 +39,187 @@ import returnIcon from '../../assets/returnIcon.svg'
 
 export const products : Product[] = [
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Wolverine",
       category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       price: "$100",
-      img: graph1
+      img: graph1,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Naruto",
       category: "manga",
       description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$125",
-      img: manga1
+      img: manga1,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Superman",
       category: "superhero",
       description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
       price: "$150",
-      img: SH1
+      img: SH1,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Capitan America",
       category: "superhero",
       description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
       price: "$120",
-      img: graph2
+      img: graph2,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "One piece",
       category: "manga",
       description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
       price: "$150",
-      img: manga2
+      img: manga2,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Iron Man",
       category: "superhero",
       description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
       price: "$180",
-      img: SH2
+      img: SH2,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Capetan Marvel",
       category: "superhero",
       description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
       price: "$120",
-      img: graph3
+      img: graph3,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Daredevil",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: SH3
+      img: SH3,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Bleach",
       category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: manga3
+      img: manga3,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Spiderman",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: graph4
+      img: graph4,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Spider-man",
       category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: SH4
+      img: SH4,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Naruto",
       category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: manga4
+      img: manga4,
+      rating: 4
     },{
-      id: uuid(),
+      _id: uuid(),
       title: "Sakamoto",
       category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: manga5
+      img: manga5,
+      rating: 4
     },{
-      id: uuid(),
+      _id: uuid(),
       title: "Hulk",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: graph5
+      img: graph5,
+      rating: 4
     },{
-      id: uuid(),
+      _id: uuid(),
       title: "Avengers",
       category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: SH5
+      img: SH5,
+      rating: 4
     },{
-      id: uuid(),
+      _id: uuid(),
       title: "Rurouni",
       category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: manga6
+      img: manga6,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Ironman",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: graph6
+      img: graph6,
+      rating: 4
     },{
-      id: uuid(),
+      _id: uuid(),
       title: "Hulk",
       category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: SH6
+      img: SH6,
+      rating: 4
     },{
-      id: uuid(),
+      _id: uuid(),
       title: "Bleach",
       category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: manga7
+      img: manga7,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "Daredevil",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: graph7
+      img: graph7,
+      rating: 4
     },
     {
-      id: uuid(),
+      _id: uuid(),
       title: "X-men",
       category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       price: "$160",
-      img: SH7
+      img: SH7,
+      rating: 4
     },
     
   ];

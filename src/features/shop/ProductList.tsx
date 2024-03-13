@@ -13,7 +13,7 @@ const ProductList = ({ products }: ProductListProps) => {
     <div className="relative">
       <div className="flex flex-row flex-wrap gap-6 xs:gap-4 ss:gap-4 sm:gap-1 md:gap-8 lg:gap-8 justify-center items-center mt-10 relative z-[99]">
         {products.map((product: Product) => (
-          <ProductCard key={product.id} {...product} />
+          <ProductCard key={product._id} {...product} />
         ))}
       </div>
       <div className="radial-hero1 absolute left-0 bottom-48 translate-y-[80%] translate-x-[140%] opacity-6  opacity-80 " />
