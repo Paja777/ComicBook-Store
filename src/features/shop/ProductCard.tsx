@@ -1,4 +1,3 @@
-import agent from "../../app/api/agent";
 import Button from "../../app/components/Button";
 import { useAuthContext } from "../../app/context/AuthContext";
 import { useUpdateUser } from "../../app/hooks/useUpdateUser";
@@ -10,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ title, price, img, _id, description }: Product) => {
   const navigate = useNavigate();
-  const { user, dispatch } = useAuthContext();
+  const { user } = useAuthContext();
   // if product is in user's favorites it will be red color
   const defaultColor = user?.productFavorites.find((p) => p.productId === _id)
     ? "red"
@@ -32,9 +31,10 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
       return;
     }
     // check if action is add or remove
-    if (buttonText === "Add to Cart") {
+    if (buttonText !== "Remove") {
       // add product to cart
       addToCart({ id: "65ec7a7e0ea358c76ac958e7" });
+      console.log("ovde sam", buttonText);
     } else {
       // remove product from cart
       removeFrom({ place: "cart", id: "65ec7a7e0ea358c76ac958e7" });
