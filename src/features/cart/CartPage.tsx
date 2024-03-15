@@ -1,19 +1,18 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import Button from "../../app/components/Button";
-import { useAppSelector } from "../../app/store/ConfigureStore";
 import cartCover from "../../assets/cart cover.jpg";
 import ProductList from "../shop/ProductList";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../app/context/AuthContext";
 
 const CartPage = () => {
-  const { cartItems } = useAppSelector((state) => state.account);
+  const { user } = useAuthContext();
   const navigate = useNavigate();
-  const { user } = useAuth0();
-  const totalCost = cartItems.reduce((sum, item) => {
-    const price = parseInt(item.price.replace('$', ''), 10);
-    return sum + price;
+  
+  const totalCost = user?.productCart.reduce((sum, item) => {
+    return sum + item.amount;
   },0)
-  console.log(user)
+  console.log(totalCost)
+  
   const handleButtonClick = () => {
     navigate("/");
   };

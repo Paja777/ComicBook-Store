@@ -5,6 +5,8 @@ import { useAuthContext } from "../context/AuthContext";
 interface UpdateUserProps {
   place?: string;
   id: string;
+  price?: number;
+  title?: string;
 }
 
 export const useUpdateUser = () => {
@@ -13,7 +15,7 @@ export const useUpdateUser = () => {
   const { user, dispatch } = useAuthContext();
 
   const addToCart = async ({
-    id = "65ec7a7e0ea358c76ac958e7",
+    id , price, title
   }: UpdateUserProps) => {
     setIsLoading(true);
     setError(null);
@@ -21,7 +23,7 @@ export const useUpdateUser = () => {
     try {
       const response = await agent.requests.patch(
         `/user/addToCart`,
-        { productId: id, amount: 1 },
+        { productId: id, price, title, amount: 1 },
         {
           headers: { authorization: `Bearer ${user!.token}` },
         }

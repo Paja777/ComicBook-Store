@@ -14,11 +14,12 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
   const defaultColor = user?.productFavorites.find((p) => p.productId === _id)
     ? "red"
     : "gray";
-  const [currentColor, setCurrentColor] = useState(defaultColor);
-  // if product is in cart button text will be 'remove'
-  const defaultButtonText = user?.productCart.find((p) => p.productId === _id)
+    const [currentColor, setCurrentColor] = useState(defaultColor);
+    // if product is in cart button text will be 'remove'
+    const defaultButtonText = user?.productCart.find((p) => p.productId === _id)
     ? "Remove"
     : "Add To Cart";
+
   const [buttonText, setButtonText] = useState(defaultButtonText);
   // custom hook for handling cart and favorite products
   const { addToCart, removeFrom, addToFavorites, error } =
@@ -33,11 +34,11 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
     // check if action is add or remove
     if (buttonText !== "Remove") {
       // add product to cart
-      addToCart({ id: "65ec7a7e0ea358c76ac958e7" });
+      addToCart({ id: _id , price, title});
       console.log("ovde sam", buttonText);
     } else {
       // remove product from cart
-      removeFrom({ place: "cart", id: "65ec7a7e0ea358c76ac958e7" });
+      removeFrom({ place: "cart", id: _id });
     }
     if(error) alert(error);
     // changing text with delay, loader
@@ -57,9 +58,9 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
       return;
     }
     if (currentColor === "gray") {
-      addToFavorites({ id: "65ec7a7e0ea358c76ac958e7" });
+      addToFavorites({ id: _id });
     } else {
-      removeFrom({ place: "favorites", id: "65ec7a7e0ea358c76ac958e7" });
+      removeFrom({ place: "favorites", id: _id });
     }
     if(error) alert(error);
     setCurrentColor((prev) => (prev === "red" ? "gray" : "red"));

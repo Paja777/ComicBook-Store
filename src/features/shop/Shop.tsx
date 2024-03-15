@@ -16,7 +16,7 @@ const Shop = () => {
   const [totalPages, setTotalPages] = useState(0);
   const limit = 8;
   
-  console.log(totalProducts, totalPages)
+  
   const { scrollToShop } = useScrollContext();
   const shopRef = useRef<HTMLDivElement>(null);
 
