@@ -16,7 +16,7 @@ const CartForm = ({ total, items }: CartFormProps) => {
   });
   console.log(items);
   const { user } = useAuthContext();
-  const { addToCart } = useUpdateUser();
+  const { addToCart, removeFrom } = useUpdateUser();
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -30,8 +30,8 @@ const CartForm = ({ total, items }: CartFormProps) => {
   const handleClick = (action: string, id: string) => {
     if (action === "add") {
       addToCart({ id });
-    }else {
-
+    } else {
+      removeFrom({ place: "cart", id, amount: 1 });
     }
   };
 
@@ -46,7 +46,7 @@ const CartForm = ({ total, items }: CartFormProps) => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-3 py-6 px-24 bg-primary text-[20px] opacity-80 rounded-lg shadow-md">
+    <div className="max-w-md mx-auto mt-3 py-6 px-28 bg-primary text-[20px] opacity-80 rounded-lg shadow-md">
       <h2 className="mb-5">Total: ${total}</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -103,14 +103,15 @@ const CartForm = ({ total, items }: CartFormProps) => {
         {items?.map((item: any) => (
           <div className="flex flex-row justify-between mt-2 ">
             <button
-              onClick={() =>handleClick("add", item._id)}
+              onClick={() => handleClick("add", item._id)}
               className="px-3 bg-secondary text-primary rounded-md border border-primary mr-2"
             >
               +
             </button>
+            <div className="text-[1rem]">{item.amount} X</div>
             <div className="text-[1rem]">{item.title}</div>
             <button
-              onClick={() =>handleClick("remove", item._id)}
+              onClick={() => handleClick("remove", item._id)}
               className="px-3 bg-secondary text-primary rounded-md border border-primary mr-2"
             >
               -

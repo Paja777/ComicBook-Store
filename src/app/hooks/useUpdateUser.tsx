@@ -7,6 +7,7 @@ interface UpdateUserProps {
   id: string;
   price?: number;
   title?: string;
+  amount?: number;
 }
 
 export const useUpdateUser = () => {
@@ -48,15 +49,17 @@ export const useUpdateUser = () => {
 
   const removeFrom = async ({
     place,
-    id = "65ec7a7e0ea358c76ac958e7",
+    id,
+    amount,
   }: UpdateUserProps) => {
     setIsLoading(true);
     setError(null);
     // remove from cart or favorites
     try {
+      console.log(amount)
       const response = await agent.requests.patch(
         `/user/removeFrom/${place}`,
-        { productId: id },
+        { productId: id, amount: amount },
         {
           headers: { authorization: `Bearer ${user!.token}` },
         }
