@@ -31,7 +31,7 @@ const ProductForm = ({ productToUpdate }: ProductFormProps) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      // update or post product 
+      // update or post product
       if (productToUpdate) {
         const response = await agent.requests.patch(
           `/product/${productToUpdate._id}`,
@@ -43,8 +43,8 @@ const ProductForm = ({ productToUpdate }: ProductFormProps) => {
               authorization: `Bearer ${user?.token}`,
             },
           }
-          );
-          console.log(response);
+        );
+        console.log(response);
       } else {
         const response = await agent.requests.post(
           "/product",
@@ -59,7 +59,7 @@ const ProductForm = ({ productToUpdate }: ProductFormProps) => {
         );
         console.log(response);
       }
-      alert("Opetation successfull")
+      alert("Opetation successfull");
     } catch (error: any) {
       console.log(error.response.data);
     }

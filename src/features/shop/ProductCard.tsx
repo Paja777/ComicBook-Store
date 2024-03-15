@@ -81,7 +81,7 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
         {title}
       </div>
       <div className="text-secondary text-[6px] ss:text-[8px] sm:text-[10px] md:text-[16px] font-light font-poppins">
-        {price}
+        ${price}
       </div>
       <div className="absolute bottom-0 left-2 ss:left-4 sm:bottom-1 sm:left-7 ">
         <FavoriteOutlinedIcon
