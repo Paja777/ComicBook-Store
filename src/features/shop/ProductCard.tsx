@@ -2,7 +2,7 @@ import Button from "../../app/components/Button";
 import { useAuthContext } from "../../app/context/AuthContext";
 import { useUpdateUser } from "../../app/hooks/useUpdateUser";
 import { Product } from "../../app/models/product";
-import image from "../../assets/onepiece.svg";
+import image from '../../assets/pacman.jpg'
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -71,9 +71,9 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
     sm:h-[290px] md:w-[270px] md:h-[390px]  justify-center items-center relative"
     >
       <img
-        src={img === "" ? image : img}
+        src={image}
         alt="cover"
-        className="w-[80%] h-[80%] rounded-[10px] mt-2 cursor-pointer"
+        className="w-[88%] h-[50%] rounded-[10px] mt-2 cursor-pointer"
         onClick={() => navigate(`/${_id}`)}
       />
       <div className="text-white font-poppins mt-1 text-[6px] ss:text-[8px] sm:text-[10px] md:text-[16px]">

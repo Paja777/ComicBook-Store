@@ -29,11 +29,10 @@ export const useUpdateUser = () => {
       // update local storage user
       const userData = JSON.parse(localStorage.getItem("user")!);
       if (userData) {
-        
         const token = userData.token;
         const updatedUserData = { ...response, token };
         localStorage.setItem("user", JSON.stringify(updatedUserData));
-        
+
         // update context user
         dispatch({ type: "LOGIN", payload: updatedUserData });
       }
@@ -63,17 +62,12 @@ export const useUpdateUser = () => {
       // update local storage user
       const userData = JSON.parse(localStorage.getItem("user")!);
       if (userData) {
-        const index = userData.productCart.findIndex(
-          (u: any) => u.productId === id
-        );
-        if (index !== -1) {
-          userData.productCart.splice(index, 1);
-        } else {
-          throw Error(`There is no such product in ${place}`);
-        }
-        localStorage.setItem("user", JSON.stringify(userData));
+        const token = userData.token;
+        const updatedUserData = { ...response, token };
+        localStorage.setItem("user", JSON.stringify(updatedUserData));
+
         // update context user
-        dispatch({ type: "LOGIN", payload: userData });
+        dispatch({ type: "LOGIN", payload: updatedUserData });
       }
       console.log(response);
     } catch (error: any) {
@@ -99,13 +93,13 @@ export const useUpdateUser = () => {
       // update local storage user
       const userData = JSON.parse(localStorage.getItem("user")!);
       if (userData) {
-        userData.productFavorites.push({
-          productId: id,
-        });
+        const token = userData.token;
+        const updatedUserData = { ...response, token };
+        localStorage.setItem("user", JSON.stringify(updatedUserData));
+
+        // update context user
+        dispatch({ type: "LOGIN", payload: updatedUserData });
       }
-      localStorage.setItem("user", JSON.stringify(userData));
-      // update context user
-      dispatch({ type: "LOGIN", payload: userData });
       console.log(response);
     } catch (error: any) {
       console.log(error.response.data);

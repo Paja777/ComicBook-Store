@@ -3,7 +3,7 @@ import Devider from "../components/Devider";
 interface PaginationProps {
   metaData: {
     currentPage: number;
-    totalPages: number;
+    totalPages: number ;
     totalProducts: number;
   };
   onSetCurrentPage: React.Dispatch<React.SetStateAction<number>>;

@@ -1,47 +1,45 @@
 import { useEffect, useRef, useState } from "react";
 import Pagination from "../../app/layout/Pagination";
-import { products } from "../../app/lib/data";
 import ProductList from "./ProductList";
 import { Product } from "../../app/models/product";
-import { useAppSelector } from "../../app/store/ConfigureStore";
-import { filterIt } from "../../app/util/utils";
 import { useScrollContext } from "../../app/context/ScrollContext";
+import agent from "../../app/api/agent";
 
-interface ShopProps {
-  pageScale: number;
-}
 
-const Shop = ({ pageScale }: ShopProps) => {
-  const { category, searchTerm } = useAppSelector((state) => state.filter);
+const Shop = () => {
+  // const { category, searchTerm } = useAppSelector((state) => state.filter);
   const [displayedProducts, setDisplayedProducts] = useState<
     Product[] | undefined
   >();
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalProducts, setTotalProducts] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  const limit = 8;
+  
+  console.log(totalProducts, totalPages)
   const { scrollToShop } = useScrollContext();
   const shopRef = useRef<HTMLDivElement>(null);
 
-  const filteredArray = filterIt(category, searchTerm, products, setCurrentPage);
-  const totalProducts = filteredArray.length;
-  const totalPages = Math.ceil(totalProducts / pageScale);
-
-  const handlePagination = (num: number) => {
-    let newArr = [];
-    if (num === 1) {
-      newArr = filteredArray.slice(0, pageScale);
-      setDisplayedProducts(newArr);
-      return;
-    }
-    if (num <= totalPages) {
-      newArr = filteredArray.slice(pageScale * (num - 1), num * pageScale);
-      setDisplayedProducts(newArr);
-    }
-  };
   useEffect(() => {
-    handlePagination(currentPage);
+
     if (scrollToShop && shopRef.current) {
       shopRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [currentPage, category, searchTerm, scrollToShop]);
+    const fetchProducts = async () => {
+      try {
+        const response = await agent.requests.get(
+          `/product?p=${currentPage - 1}&limit=${limit}`
+        );
+        console.log(response);
+        setDisplayedProducts(response.products);
+        setTotalProducts(response.totalProducts);
+        setTotalPages(response.totalPages);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchProducts();
+  }, [currentPage]);
 
   return (
     <div ref={shopRef} className="">

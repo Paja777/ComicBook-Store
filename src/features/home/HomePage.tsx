@@ -9,7 +9,7 @@ export default function HomePage() {
     <div className="relative h-[1890px] xs:h-[1670px] ss:h-[1950px] sm:h-[2650px] md:h-[4100px] lg:h-[3800px] ">
       <Hero />
       <Categories />
-      <Shop pageScale={8}/>
+      <Shop />
       <MostPopular />
       <Footer />
     </div>
