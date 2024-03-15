@@ -18,19 +18,19 @@ const DeleteForm = ({ productIds }: ProductFormProps) => {
         },
       });
       console.log(response);
-      window.location.reload();
+      // window.location.reload();
     } catch (error: any) {
       console.log(error.response.data);
     }
   };
 
   return (
-    <div className="max-w-md h-[330px] mx-auto mt-10 p-6 bg-white rounded-lg shadow-md relative">
+    <div className="max-w-md h-auto mx-auto mt-10 p-6 bg-white rounded-lg shadow-md relative">
       <h2 className="text-2xl font-semibold mb-6 text-center">
         Delete Product
       </h2>
       <div className=" mb-4">
-        <div className="absolute left-0 z-10 w-full  bg-white border border-gray-300 rounded-md mt-1">
+        <div className="  z-10 w-full  bg-white border border-gray-300 rounded-md mt-1">
           {productIds?.map((productId) => (
             <div
               key={productId}
@@ -46,7 +46,7 @@ const DeleteForm = ({ productIds }: ProductFormProps) => {
       </div>
       <button
         type="submit"
-        className="absolute bottom-3 left-[20%] w-[60%] bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300"
+        className="absolute bottom-0 z-[99] left-[20%] w-[60%] bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300"
         onClick={handleClick}
       >
         Delete

@@ -16,6 +16,7 @@ const DataTable = ({dataArray} : DataTableProps) => {
             <th className="table-field">ID</th>
             <th className="table-field">Title</th>
             <th className="table-field">Price</th>
+            <th className="table-field">Stock</th>
             <th className="table-field">Sold/mon</th>
             <th className="table-field">Sold/Yr</th>
             <th className="table-field">M$</th>
@@ -29,6 +30,7 @@ const DataTable = ({dataArray} : DataTableProps) => {
             <td className="table-field">{data.productId}</td>
             <td className="table-field">{data.title}</td>
             <td className="table-field">{data.price}</td>
+            <td className="table-field">{data.stock}</td>
             <td className="table-field">{data.soldMon}%</td>
             <td className="table-field">{data.soldYr}%</td>
             <td className="table-field">${data.M$}</td>

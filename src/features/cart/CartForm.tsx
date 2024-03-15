@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useAuthContext } from "../../app/context/AuthContext";
 import { useUpdateUser } from "../../app/hooks/useUpdateUser";
 import { Product } from "../../app/models/product";
 
@@ -15,7 +14,7 @@ const CartForm = ({ total, items }: CartFormProps) => {
     phone: "",
   });
   console.log(items);
-  const { user } = useAuthContext();
+  const { updateStockAndCart } = useUpdateUser();
   const { addToCart, removeFrom } = useUpdateUser();
 
   const handleChange = (e: any) => {
@@ -34,15 +33,12 @@ const CartForm = ({ total, items }: CartFormProps) => {
       removeFrom({ place: "cart", id, amount: 1 });
     }
   };
+  console.log(items);
 
   // Update product stock
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    try {
-      alert("Thank you for buying!");
-    } catch (error: any) {
-      console.log(error.response.data);
-    }
+    updateStockAndCart({items});
   };
 
   return (
@@ -103,6 +99,7 @@ const CartForm = ({ total, items }: CartFormProps) => {
         {items?.map((item: any) => (
           <div className="flex flex-row justify-between mt-2 ">
             <button
+              type="button"
               onClick={() => handleClick("add", item._id)}
               className="px-3 bg-secondary text-primary rounded-md border border-primary mr-2"
             >
@@ -111,6 +108,7 @@ const CartForm = ({ total, items }: CartFormProps) => {
             <div className="text-[1rem]">{item.amount} X</div>
             <div className="text-[1rem]">{item.title}</div>
             <button
+              type="button"
               onClick={() => handleClick("remove", item._id)}
               className="px-3 bg-secondary text-primary rounded-md border border-primary mr-2"
             >

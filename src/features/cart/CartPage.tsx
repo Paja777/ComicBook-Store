@@ -32,7 +32,7 @@ const CartPage = () => {
         <div className="w-[50%] mt-20">
           <ProductList products={items} />
         </div>
-        <section className="flex flex-col font-poppins text-white mb-0   text-[24px] mt-10 ml-10 leading-15">
+        <section className="flex flex-col font-poppins text-white mb-0 text-[24px] mt-10 ml-10 leading-15">
           <div className="mt-10 z-[99]">
             <CartForm total={totalCost} items={items}/>
           </div>
