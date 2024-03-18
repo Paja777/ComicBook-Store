@@ -4,6 +4,7 @@ import ProductList from "../shop/ProductList";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../app/context/AuthContext";
 import CartForm from "./CartForm";
+import { Suspense } from "react";
 
 const CartPage = () => {
   const { user } = useAuthContext();
@@ -34,7 +35,9 @@ const CartPage = () => {
         </div>
         <section className="flex flex-col font-poppins text-white mb-0 text-[24px] mt-10 ml-10 leading-15">
           <div className="mt-10 z-[99]">
+            <Suspense fallback={<p>...Loading</p>}>
             <CartForm total={totalCost} items={items}/>
+            </Suspense>
           </div>
         </section>
       </div>

@@ -19,6 +19,7 @@ const Shop = () => {
   
   const { scrollToShop } = useScrollContext();
   const shopRef = useRef<HTMLDivElement>(null);
+  
 
   useEffect(() => {
 
@@ -38,7 +39,8 @@ const Shop = () => {
         console.log(error);
       }
     };
-    fetchProducts();
+    const timer = setTimeout(() => fetchProducts(), 3000)
+    
   }, [currentPage]);
 
   return (

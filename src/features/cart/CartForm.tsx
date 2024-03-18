@@ -13,7 +13,6 @@ const CartForm = ({ total, items }: CartFormProps) => {
     address: "",
     phone: "",
   });
-  console.log(items);
   const { updateStockAndCart } = useUpdateUser();
   const { addToCart, removeFrom } = useUpdateUser();
 
@@ -33,12 +32,12 @@ const CartForm = ({ total, items }: CartFormProps) => {
       removeFrom({ place: "cart", id, amount: 1 });
     }
   };
-  console.log(items);
+  
 
-  // Update product stock
+  // Update product stock (after buying)
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    updateStockAndCart({items});
+    updateStockAndCart({ items });
   };
 
   return (
@@ -97,7 +96,9 @@ const CartForm = ({ total, items }: CartFormProps) => {
           />
         </div>
         {items?.map((item: any) => (
-          <div className="flex flex-row justify-between mt-2 ">
+          <div 
+          key={item._id}
+          className="flex flex-row justify-between mt-2 ">
             <button
               type="button"
               onClick={() => handleClick("add", item._id)}

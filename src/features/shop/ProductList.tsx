@@ -7,7 +7,7 @@ interface ProductListProps {
 }
 
 const ProductList = ({ products }: ProductListProps) => {
-  if (products === undefined) return <LoadingComponent />;
+  if (products === undefined) return <p>.</p>;
 
   return (
     <div className="relative">
