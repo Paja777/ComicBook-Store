@@ -17,7 +17,7 @@ const CartPage = () => {
   }, 0);
 
   return (
-    <div className="flex flex-col relative h-auto w-full text-red-600 overflow-hidden">
+    <div className="flex flex-col  relative h-auto w-full text-red-600 overflow-hidden">
       <div className="absolute top-10 left-[30%] font-poppins text-[36px]  opacity-45 text-gradient">
         {user?.username} Welcome To Your Cart
       </div>
@@ -30,7 +30,7 @@ const CartPage = () => {
       </div>
       <img src={cartCover} alt="cover_image" className="opacity-20 absolute" />
       <div className="flex flex-row mt-16 ">
-        <div className="w-[50%] mt-20">
+        <div className="w-[60%] mt-20">
           <ProductList products={items} />
         </div>
         <section className="flex flex-col font-poppins text-white mb-0 text-[24px] mt-10 ml-10 leading-15">

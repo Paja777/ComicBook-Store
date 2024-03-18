@@ -41,7 +41,7 @@ const CartForm = ({ total, items }: CartFormProps) => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-3 py-6 px-28 bg-primary text-[20px] opacity-80 rounded-lg shadow-md">
+    <div className="max-w-md mx-0 w-[120%] px-14 mt-3 py-6  bg-primary text-[20px] opacity-80 rounded-lg shadow-md">
       <h2 className="mb-5">Total: ${total}</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -61,7 +61,7 @@ const CartForm = ({ total, items }: CartFormProps) => {
         </div>
         <div className="mb-4">
           <label
-            htmlFor="address"
+            htmlFor="address" 
             className="block text-white font-medium mb-2"
           >
             Address
