@@ -1,15 +1,15 @@
-import { search } from "../../features/shop/FilterSlice";
+import { useAuthContext } from "../context/AuthContext";
 import { useScrollContext } from "../context/ScrollContext";
-import { useAppDispatch } from "../store/ConfigureStore";
 
 const SearchInput = () => {
-  const dispatch = useAppDispatch();
+  const {dispatch} = useAuthContext();
   const { setScrollToShop } = useScrollContext();
 
- 
   const handleInputChange = (event: any) => {
     if (event.key === "Enter") {
-      dispatch(search(event.target.value));
+      console.log(event.target.value)
+      dispatch({ type: "SEARCH", payload: event.target.value });
+      // localStorage.setItem("searchTerm", JSON.stringify(event.target.value));
       setScrollToShop(true);
     }
   };

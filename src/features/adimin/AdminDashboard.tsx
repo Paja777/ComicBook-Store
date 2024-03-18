@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import ProductForm from "./ProductForm";
 import DataTable from "./Table";
 import Button from "../../app/components/Button";
@@ -7,6 +7,8 @@ import { useAuthContext } from "../../app/context/AuthContext";
 import UpdateForm from "./UpdateForm";
 import NotFound from "../../app/error/NotFound";
 import DeleteForm from "./DeleteForm";
+import LoadingComponent from "../../app/layout/LoadingComponent";
+import { Fallback } from "../../app/errors/FallbackRender";
 
 export interface ProductData {
   productId: string;
@@ -40,19 +42,20 @@ const AdminDashboard = () => {
         console.log("An error occurred:", error.response.data);
       }
     };
+
     fetchData();
   }, [user]);
 
   const handleClickTable = () => {
-      setShowUpdateForm(false);
-      setShowProductForm(false);
-      setShowDeleteForm(false);
-      setShowTable(true);
+    setShowUpdateForm(false);
+    setShowProductForm(false);
+    setShowDeleteForm(false);
+    setShowTable(true);
   };
   const handleClickAdd = () => {
-      setShowUpdateForm(false);
-      setShowTable(false);
-      setShowDeleteForm(false);
+    setShowUpdateForm(false);
+    setShowTable(false);
+    setShowDeleteForm(false);
     setShowProductForm(true);
   };
   const handleClickUpdate = () => {
@@ -63,7 +66,7 @@ const AdminDashboard = () => {
   };
   const handleClickDelete = () => {
     setShowProductForm(false);
-      setShowTable(false);
+    setShowTable(false);
     setShowUpdateForm(false);
     setShowDeleteForm(true);
   };
@@ -98,8 +101,8 @@ const AdminDashboard = () => {
       </div>
       <div>
         {showUpdateForm && <UpdateForm productIds={productIds} />}{" "}
-        {showProductForm && <ProductForm  />}{" "}
-        {showDeleteForm && <DeleteForm  productIds={productIds}/>}{" "}
+        {showProductForm && <ProductForm />}{" "}
+        {showDeleteForm && <DeleteForm productIds={productIds} />}{" "}
       </div>
     </div>
   );

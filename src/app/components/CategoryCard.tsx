@@ -1,13 +1,13 @@
-import { Category } from "../models/category"
+import { Category } from "../models/category";
 import arrow from "../../assets/arrow.svg";
 import { useAppDispatch } from "../store/ConfigureStore";
 import { changeCategory } from "../../features/shop/FilterSlice";
-
+import { useAuthContext } from "../context/AuthContext";
 
 const CategoryCard = ({ id, image, name }: Category) => {
-  const dispatch = useAppDispatch();
+  const { dispatch } = useAuthContext();
   const clickHandler = () => {
-    dispatch(changeCategory(name));
+    // dispatch(name);
   };
   return (
     <div

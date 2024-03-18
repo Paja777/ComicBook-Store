@@ -32,7 +32,7 @@ const HeaderLink = ({ path, image, name, setSearchBar }: HeaderLinkProps) => {
           />
           {name !== "search" && (
             <div className="flex justify-center items-center font-poppins text-[7px] md:text-[10px] absolute top-0 right-0 w-[10px] h-[10px] sm:w-[13px] sm:h-[13px] md:w-[15px] md:h-[15px] bg-red-500 rounded-full text-white">
-              {itemCount}
+              {itemCount ?? 0}
             </div>
           )}
         </div>
