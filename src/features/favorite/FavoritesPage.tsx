@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../../app/store/ConfigureStore";
 import fav2 from "../../assets/fav2.webp";
 import ProductList from "../shop/ProductList";
 import Button from "../../app/components/Button";
+import { useAuthContext } from "../../app/context/AuthContext";
 
 const FavoritesPage = () => {
-  const { favorites } = useAppSelector((state) => state.account);
+  const { user } = useAuthContext();
   const navigate = useNavigate();
+  const items = user?.productFavorites.map((p: any) => {
+    return { ...p, _id: p.productId };
+  });
   const handleButtonClick = () => {
     navigate("/");
   };
@@ -24,7 +27,7 @@ const FavoritesPage = () => {
       </div>
       <img src={fav2} alt="cover_image" className="opacity-20 absolute" />
       <div className="mt-36">
-        <ProductList products={favorites} />
+        <ProductList products={items} />
       </div>
     </div>
   );

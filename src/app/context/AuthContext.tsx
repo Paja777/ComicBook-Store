@@ -17,10 +17,11 @@ interface AuthContextValue {
       title: string;
       price: number;
     }[];
-    productFavorites: { productId: string }[];
+    productFavorites: { productId: string; title: string; price: number }[];
     username: string;
   } | null;
   searchTerm: string | null;
+  category: string | null;
   dispatch: React.Dispatch<ActionType>;
 }
 
@@ -36,7 +37,12 @@ interface SearchAction {
   type: "SEARCH";
   payload: string;
 }
-type ActionType = LoginAction | LogoutAction | SearchAction;
+interface CategoryAction {
+  type: "CATEGORY";
+  payload: string;
+}
+
+type ActionType = LoginAction | LogoutAction | SearchAction | CategoryAction;
 
 export const AuthContext = createContext<AuthContextValue | undefined>(
   undefined
@@ -69,6 +75,7 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<any>) => {
   const [state, dispatch] = useReducer(AuthReducer, {
     user: null,
     searchTerm: null,
+    category: null,
   });
 
   useEffect(() => {
@@ -77,7 +84,7 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<any>) => {
     if (user) {
       dispatch({ type: "LOGIN", payload: user });
     }
-    console.log(state)
+    console.log(state);
   }, []);
 
   return (

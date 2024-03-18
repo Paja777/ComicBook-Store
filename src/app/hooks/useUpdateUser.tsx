@@ -10,8 +10,7 @@ interface UpdateUserProps {
   price?: number;
   title?: string;
   amount?: number;
-  items?: 
-    Product[] | undefined;
+  items?: Product[] | undefined;
 }
 
 export const useUpdateUser = () => {
@@ -80,16 +79,14 @@ export const useUpdateUser = () => {
     }
   };
 
-  const addToFavorites = async ({
-    id = "65ec7a7e0ea358c76ac958e7",
-  }: UpdateUserProps) => {
+  const addToFavorites = async ({ id, price, title }: UpdateUserProps) => {
     setIsLoading(true);
     setError(null);
     // add product to favorites
     try {
       const response = await agent.requests.patch(
         `/user/addToFavorites`,
-        { productId: id },
+        { productId: id , price, title},
         {
           headers: { authorization: `Bearer ${user!.token}` },
         }

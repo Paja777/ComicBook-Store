@@ -7,12 +7,10 @@ import { Fallback } from "../errors/FallbackRender";
 function App() {
   return (
     <div className="bg-primary w-full h-auto overflow-hidden">
-      <ErrorBoundary FallbackComponent={Fallback}>
       <ScrollProvider>
-      <Header />
-      <Outlet />
-    </ScrollProvider>
-    </ErrorBoundary>
+        <Header />
+        <Outlet />
+      </ScrollProvider>
     </div>
   );
 }

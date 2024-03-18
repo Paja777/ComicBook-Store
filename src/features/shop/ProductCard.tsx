@@ -57,8 +57,9 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
       navigate("/signup");
       return;
     }
+    console.log(price, title);
     if (currentColor === "gray") {
-      addToFavorites({ id: _id });
+      addToFavorites({ id: _id, price, title });
     } else {
       removeFrom({ place: "favorites", id: _id });
     }
