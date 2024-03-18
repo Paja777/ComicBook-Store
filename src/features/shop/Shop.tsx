@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Pagination from "../../app/layout/Pagination";
 import ProductList from "./ProductList";
 import { Product } from "../../app/models/product";
 import { useScrollContext } from "../../app/context/ScrollContext";
 import agent from "../../app/api/agent";
+import LoadingComponent from "../../app/layout/LoadingComponent";
 
 
 const Shop = () => {
@@ -39,7 +40,7 @@ const Shop = () => {
         console.log(error);
       }
     };
-    const timer = setTimeout(() => fetchProducts(), 3000)
+    fetchProducts();
     
   }, [currentPage]);
 
