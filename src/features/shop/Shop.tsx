@@ -18,21 +18,15 @@ const Shop = () => {
   const limit = 8;
 
   const { showBoundary } = useErrorBoundary();
-  // const { scrollToShop } = useScrollContext();
-  const { searchTerm } = useAuthContext();
-
-  // const shopRef = useRef<HTMLDivElement>(null);
+  const { searchTerm, category } = useAuthContext();
 
   useEffect(() => {
-    //   if (scrollToShop && shopRef.current) {
-    //     shopRef.current!.scrollIntoView({ behavior: "smooth" });
-    //   }
     const fetchProducts = async () => {
       try {
         const response = await agent.requests.get(
           `/product?p=${currentPage - 1}&limit=${limit}&searchTerm=${
             searchTerm ?? ""
-          }`
+          }&category=${category ?? ""}`
         );
         console.log(response);
         setDisplayedProducts(response.products);
@@ -44,10 +38,10 @@ const Shop = () => {
       }
     };
     fetchProducts();
-  }, [currentPage, searchTerm]);
+  }, [currentPage, searchTerm, category]);
 
   return (
-    <div  className="">
+    <div className="">
       <ProductList products={displayedProducts} />
       {totalProducts === 0 && (
         <div className="text-white flex justify-center items-center text-[36px]">

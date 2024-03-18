@@ -17,7 +17,7 @@ const CartPage = () => {
   }, 0);
 
   return (
-    <div className="flex flex-col relative h-auto text-red-600 overflow-hidden">
+    <div className="flex flex-col relative h-auto w-full text-red-600 overflow-hidden">
       <div className="absolute top-10 left-[30%] font-poppins text-[36px]  opacity-45 text-gradient">
         {user?.username} Welcome To Your Cart
       </div>

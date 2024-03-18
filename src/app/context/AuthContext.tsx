@@ -66,6 +66,8 @@ export const AuthReducer = (state: any, action: ActionType) => {
       return { user: null };
     case "SEARCH":
       return { searchTerm: action.payload };
+    case "CATEGORY":
+      return {category: action.payload};
     default:
       return state;
   }

@@ -3,13 +3,16 @@ import { useAuthContext } from "../../app/context/AuthContext";
 import { useUpdateUser } from "../../app/hooks/useUpdateUser";
 import { Product } from "../../app/models/product";
 import image from '../../assets/pacman.jpg'
+import image1 from '../../assets/pac ghost 1.png'
+import image2 from '../../assets/pac ghost 2.jpg'
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ProductCard = ({ title, price, img, _id, description }: Product) => {
+const ProductCard = ({ title, price, img, _id, description, category }: Product) => {
   const navigate = useNavigate();
   const { user } = useAuthContext();
+  const imageChooser = category === "superhero" ? image : (category === "manga" ? image2 : image1 );
   // if product is in user's favorites it will be red color
   const defaultColor = user?.productFavorites.find((p) => p.productId === _id)
     ? "red"
@@ -73,7 +76,7 @@ const ProductCard = ({ title, price, img, _id, description }: Product) => {
     sm:h-[290px] md:w-[270px] md:h-[390px]  justify-center items-center relative"
     >
       <img
-        src={image}
+        src={imageChooser}
         alt="cover"
         className="w-[88%] h-[50%] rounded-[10px] mt-2 cursor-pointer"
         onClick={() => navigate(`/${_id}`)}

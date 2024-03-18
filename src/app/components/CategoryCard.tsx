@@ -5,6 +5,7 @@ import { useAuthContext } from "../context/AuthContext";
 const CategoryCard = ({ id, image, name }: Category) => {
   const { dispatch } = useAuthContext();
   const clickHandler = () => {
+    console.log("category name:",name)
     dispatch({type: "CATEGORY", payload: name});
   };
   return (
