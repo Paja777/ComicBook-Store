@@ -5,6 +5,7 @@ import { Product } from "../../app/models/product";
 import { useScrollContext } from "../../app/context/ScrollContext";
 import agent from "../../app/api/agent";
 import LoadingComponent from "../../app/layout/LoadingComponent";
+import { useErrorBoundary } from "react-error-boundary";
 
 
 const Shop = () => {
@@ -16,8 +17,8 @@ const Shop = () => {
   const [totalProducts, setTotalProducts] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const limit = 8;
-  
-  
+
+  const { showBoundary } = useErrorBoundary();
   const { scrollToShop } = useScrollContext();
   const shopRef = useRef<HTMLDivElement>(null);
   
@@ -36,8 +37,9 @@ const Shop = () => {
         setDisplayedProducts(response.products);
         setTotalProducts(response.totalProducts);
         setTotalPages(response.totalPages);
-      } catch (error) {
+      } catch (error: any) {
         console.log(error);
+        showBoundary(error)
       }
     };
     fetchProducts();
