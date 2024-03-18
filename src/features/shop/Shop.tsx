@@ -9,7 +9,6 @@ import { useErrorBoundary } from "react-error-boundary";
 import { useAuthContext } from "../../app/context/AuthContext";
 
 const Shop = () => {
-  // const { category, searchTerm } = useAppSelector((state) => state.filter);
   const [displayedProducts, setDisplayedProducts] = useState<
     Product[] | undefined
   >();
@@ -19,17 +18,15 @@ const Shop = () => {
   const limit = 8;
 
   const { showBoundary } = useErrorBoundary();
-  const { scrollToShop } = useScrollContext();
+  // const { scrollToShop } = useScrollContext();
   const { searchTerm } = useAuthContext();
-  console.log("from shop", searchTerm);
-  const shopRef = useRef<HTMLDivElement>(null);
+
+  // const shopRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (scrollToShop && shopRef.current) {
-      setTimeout(() => {
-        shopRef.current.scrollIntoView({ behavior: "smooth" });
-      }, 100); 
-    }
+    //   if (scrollToShop && shopRef.current) {
+    //     shopRef.current!.scrollIntoView({ behavior: "smooth" });
+    //   }
     const fetchProducts = async () => {
       try {
         const response = await agent.requests.get(
@@ -50,7 +47,7 @@ const Shop = () => {
   }, [currentPage, searchTerm]);
 
   return (
-    <div ref={shopRef} className="">
+    <div  className="">
       <ProductList products={displayedProducts} />
       {totalProducts === 0 && (
         <div className="text-white flex justify-center items-center text-[36px]">
