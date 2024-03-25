@@ -7,19 +7,22 @@ import HeaderLink from "../components/HeaderLink";
 import SearchInput from "../components/SearchInput";
 import DropDown from "../components/DropDown";
 import { NavLink } from "react-router-dom";
+import Lottie from 'lottie-react'
+import animationData from '../../assets/animation1.json'
 
 const Header = () => {
   const [searchBar, setSearchBar] = useState(false);
 
   return (
-    <div className="flex flex-col fixed bg-primary w-full pb-1 z-[999]">
+    <div className="flex flex-col fixed bg-primary bg-opacity-5 w-full pb-1 z-[999]">
       <nav className="flex h-[60px]  gap-64 sm:h-[80px] md:h-[100px] justify-center items-center mb-2 ">
-        <NavLink to={""}>
+        <NavLink className="flex flex-row " to={""}>
           <img
             src={logoipsum}
             alt="logo"
             className="logo_gradient h-[24px] ml-3 sm:ml-10 sm:h-[40px] md:w-[100px] md:h-[100px] md:mt-6"
           />
+        <Lottie className="w-[120px] mt-3" animationData={animationData}/>
         </NavLink>
         <div className="flex flex-1 justify-end">
           {links.map((link: Link) => {
