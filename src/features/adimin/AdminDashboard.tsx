@@ -5,7 +5,7 @@ import Button from "../../app/components/Button";
 import agent from "../../app/api/agent";
 import { useAuthContext } from "../../app/context/AuthContext";
 import UpdateForm from "./UpdateForm";
-import NotFound from "../../app/error/NotFound";
+import NotFound from "../../app/errors/NotFound";
 import DeleteForm from "./DeleteForm";
 import LoadingComponent from "../../app/layout/LoadingComponent";
 import { Fallback } from "../../app/errors/FallbackRender";

@@ -12,13 +12,13 @@ const Header = () => {
   const [searchBar, setSearchBar] = useState(false);
 
   return (
-    <div className="flex flex-col relative">
-      <nav className="flex h-[60px] sm:h-[80px] md:h-[100px] justify-between items-center mb-2 ">
+    <div className="flex flex-col fixed bg-primary w-full pb-1 z-[999]">
+      <nav className="flex h-[60px]  gap-64 sm:h-[80px] md:h-[100px] justify-center items-center mb-2 ">
         <NavLink to={""}>
           <img
             src={logoipsum}
             alt="logo"
-            className="logo_gradient h-[24px] ml-3 sm:ml-10 sm:h-[40px] md:w-[100px] md:h-[100px] md:mt-10"
+            className="logo_gradient h-[24px] ml-3 sm:ml-10 sm:h-[40px] md:w-[100px] md:h-[100px] md:mt-6"
           />
         </NavLink>
         <div className="flex flex-1 justify-end">
