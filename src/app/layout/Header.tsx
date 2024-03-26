@@ -15,15 +15,15 @@ const Header = () => {
 
   return (
     <div className="flex flex-col fixed bg-primary bg-opacity-5 w-full pb-1 z-[999]">
-      <nav className="flex h-[60px]  gap-64 sm:h-[80px] md:h-[100px] justify-center items-center mb-2 ">
-        <NavLink className="flex flex-row items-center" to={""}>
+      <nav className="flex flex-col sm:flex-row h-[60px] sm:h-[80px] md:h-[100px] justify-center items-center mb-2 ">
+        <NavLink className="flex items-center" to={""}>
           <img
             src={logoipsum}
             alt="logo"
-            className="logo_gradient h-[24px] ml-3 sm:ml-10 sm:h-[40px] md:w-[100px] md:h-[100px] md:mt-6"
+            className="logo_gradient h-[24px] sm:h-[40px] md:h-[100px] md:w-[100px] md:mt-6"
           />
-        <Lottie className="w-[50px] md:w-[120px] lg:w-[150px] xl:w-[200px] ml-3 mt-3" animationData={animationData}/>
         </NavLink>
+        <Lottie className="w-[50px] md:w-[120px] lg:w-[150px] xl:w-[200px] mt-3" animationData={animationData}/>
         <div className="flex flex-1 justify-end">
           {links.map((link: Link) => {
             return link.name === "My account" ? (
