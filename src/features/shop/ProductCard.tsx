@@ -2,31 +2,31 @@ import Button from "../../app/components/Button";
 import { useAuthContext } from "../../app/context/AuthContext";
 import { useUpdateUser } from "../../app/hooks/useUpdateUser";
 import { Product } from "../../app/models/product";
-import image from '../../assets/pacman.jpg'
-import image1 from '../../assets/pac ghost 1.png'
-import image2 from '../../assets/pac ghost 2.jpg'
+import image from "../../assets/pacman.jpg";
+import image1 from "../../assets/pac ghost 1.png";
+import image2 from "../../assets/pac ghost 2.jpg";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ProductCard = ({ title, price, img, _id, description, category }: Product) => {
+const ProductCard = ({ title, price, _id, category }: Product) => {
   const navigate = useNavigate();
   const { user } = useAuthContext();
-  const imageChooser = category === "superhero" ? image : (category === "manga" ? image2 : image1 );
+  const imageChooser =
+    category === "superhero" ? image : category === "manga" ? image2 : image1;
   // if product is in user's favorites it will be red color
   const defaultColor = user?.productFavorites.find((p) => p.productId === _id)
     ? "red"
     : "gray";
-    const [currentColor, setCurrentColor] = useState(defaultColor);
-    // if product is in cart button text will be 'remove'
-    const defaultButtonText = user?.productCart.find((p) => p.productId === _id)
+  const [currentColor, setCurrentColor] = useState(defaultColor);
+  // if product is in cart button text will be 'remove'
+  const defaultButtonText = user?.productCart.find((p) => p.productId === _id)
     ? "Remove"
     : "Add To Cart";
 
   const [buttonText, setButtonText] = useState(defaultButtonText);
   // custom hook for handling cart and favorite products
-  const { addToCart, removeFrom, addToFavorites, error } =
-    useUpdateUser();
+  const { addToCart, removeFrom, addToFavorites, error } = useUpdateUser();
 
   const handleButtonClick = async () => {
     // unregistered user cannot put something in cart
@@ -37,13 +37,13 @@ const ProductCard = ({ title, price, img, _id, description, category }: Product)
     // check if action is add or remove
     if (buttonText !== "Remove") {
       // add product to cart
-      addToCart({ id: _id , price, title});
+      addToCart({ id: _id, price, title });
       console.log("ovde sam", buttonText);
     } else {
       // remove product from cart
       removeFrom({ place: "cart", id: _id });
     }
-    if(error) alert(error);
+    if (error) alert(error);
     // changing text with delay, loader
     setTimeout(
       () =>
@@ -66,7 +66,7 @@ const ProductCard = ({ title, price, img, _id, description, category }: Product)
     } else {
       removeFrom({ place: "favorites", id: _id });
     }
-    if(error) alert(error);
+    if (error) alert(error);
     setCurrentColor((prev) => (prev === "red" ? "gray" : "red"));
   };
 

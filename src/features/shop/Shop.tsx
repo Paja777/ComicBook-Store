@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "../../app/layout/Pagination";
 import ProductList from "./ProductList";
 import { Product } from "../../app/models/product";
-import { useScrollContext } from "../../app/context/ScrollContext";
 import agent from "../../app/api/agent";
 
 import { useErrorBoundary } from "react-error-boundary";

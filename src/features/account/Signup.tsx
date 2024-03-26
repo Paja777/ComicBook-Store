@@ -9,7 +9,7 @@ const SignupForm = () => {
     email: "",
     password: "",
   });
-  const { signup, isLoading, error } = useSignup();
+  const { signup, error } = useSignup();
   const navigate = useNavigate();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: '/' } };

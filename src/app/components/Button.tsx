@@ -28,7 +28,7 @@ const Button = ({ name, size: { w, h }, onHandleButtonClick }: ButtonProps) => {
       }}
       className={` z-[100] font-semibold text-[4px] gradient-bg  hover:scale-[1.05] text-gray-700  
       ss:w-[30px] ss:text-[6px] sm:py-0.5 sm:w-[50px] sm:text-[8px] md:text-[13px] md:w-[80px] 
-      md:h-[25px] lg:h-[${h}] rounded transition`}
+      md:h-[25px] lg:h-[${h}] lg:w-[${w}] rounded transition`}
     >
       {buttonText}
     </button>

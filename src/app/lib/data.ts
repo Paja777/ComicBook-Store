@@ -43,7 +43,7 @@ export const products : Product[] = [
       title: "Wolverine",
       category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      price: "$100",
+      price: 100,
       img: graph1,
       rating: 4
     },
@@ -52,7 +52,7 @@ export const products : Product[] = [
       title: "Naruto",
       category: "manga",
       description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$125",
+      price: 100,
       img: manga1,
       rating: 4
     },
@@ -61,7 +61,7 @@ export const products : Product[] = [
       title: "Superman",
       category: "superhero",
       description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      price: "$150",
+      price: 100,
       img: SH1,
       rating: 4
     },
@@ -70,7 +70,7 @@ export const products : Product[] = [
       title: "Capitan America",
       category: "superhero",
       description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      price: "$120",
+      price: 100,
       img: graph2,
       rating: 4
     },
@@ -79,7 +79,7 @@ export const products : Product[] = [
       title: "One piece",
       category: "manga",
       description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
-      price: "$150",
+      price: 100,
       img: manga2,
       rating: 4
     },
@@ -88,7 +88,7 @@ export const products : Product[] = [
       title: "Iron Man",
       category: "superhero",
       description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-      price: "$180",
+      price: 100,
       img: SH2,
       rating: 4
     },
@@ -97,7 +97,7 @@ export const products : Product[] = [
       title: "Capetan Marvel",
       category: "superhero",
       description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
-      price: "$120",
+      price: 100,
       img: graph3,
       rating: 4
     },
@@ -106,7 +106,7 @@ export const products : Product[] = [
       title: "Daredevil",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: SH3,
       rating: 4
     },
@@ -115,7 +115,7 @@ export const products : Product[] = [
       title: "Bleach",
       category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: manga3,
       rating: 4
     },
@@ -124,7 +124,7 @@ export const products : Product[] = [
       title: "Spiderman",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: graph4,
       rating: 4
     },
@@ -133,7 +133,7 @@ export const products : Product[] = [
       title: "Spider-man",
       category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: SH4,
       rating: 4
     },
@@ -142,7 +142,7 @@ export const products : Product[] = [
       title: "Naruto",
       category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: manga4,
       rating: 4
     },{
@@ -150,7 +150,7 @@ export const products : Product[] = [
       title: "Sakamoto",
       category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: manga5,
       rating: 4
     },{
@@ -158,7 +158,7 @@ export const products : Product[] = [
       title: "Hulk",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: graph5,
       rating: 4
     },{
@@ -166,7 +166,7 @@ export const products : Product[] = [
       title: "Avengers",
       category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: SH5,
       rating: 4
     },{
@@ -174,7 +174,7 @@ export const products : Product[] = [
       title: "Rurouni",
       category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: manga6,
       rating: 4
     },
@@ -183,7 +183,7 @@ export const products : Product[] = [
       title: "Ironman",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: graph6,
       rating: 4
     },{
@@ -191,7 +191,7 @@ export const products : Product[] = [
       title: "Hulk",
       category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: SH6,
       rating: 4
     },{
@@ -199,7 +199,7 @@ export const products : Product[] = [
       title: "Bleach",
       category: "manga",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: manga7,
       rating: 4
     },
@@ -208,7 +208,7 @@ export const products : Product[] = [
       title: "Daredevil",
       category: "graphic_novel",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: graph7,
       rating: 4
     },
@@ -217,7 +217,7 @@ export const products : Product[] = [
       title: "X-men",
       category: "superhero",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      price: "$160",
+      price: 100,
       img: SH7,
       rating: 4
     },

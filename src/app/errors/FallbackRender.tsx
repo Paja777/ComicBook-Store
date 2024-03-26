@@ -1,11 +1,11 @@
-import { ErrorBoundary } from "react-error-boundary";
+
 
 interface FallbackProps {
     error: any,
     resetErrorBoundary?: any,
 }
 
-export function Fallback({ error, resetErrorBoundary }: FallbackProps) {
+export function Fallback({ error }: FallbackProps) {
   // Call resetErrorBoundary() to reset the error boundary and retry the render.
   console.log("Fallback")
   return (

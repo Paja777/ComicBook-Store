@@ -1,8 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import { ScrollProvider } from "../context/ScrollContext";
-import { ErrorBoundary } from "react-error-boundary";
-import { Fallback } from "../errors/FallbackRender";
 
 function App() {
   return (

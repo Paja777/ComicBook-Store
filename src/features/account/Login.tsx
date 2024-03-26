@@ -8,7 +8,7 @@ const LoginForm = () => {
     username: '',
     password: ''
   });
-  const {login, isLoading, error} = useLogin();
+  const {login, error} = useLogin();
   const navigate = useNavigate();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: '/' } };
