@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <div className="flex flex-col fixed bg-primary bg-opacity-5 w-full pb-1 z-[999]">
-      <nav className="flex flex-col sm:flex-row h-[60px] sm:h-[80px] md:h-[100px] justify-center items-center mb-2 ">
+      <nav className="flex flex-row  h-[60px] sm:h-[80px] md:h-[100px] justify-center items-center mb-2 ">
         <NavLink className="flex items-center" to={""}>
           <img
             src={logoipsum}
