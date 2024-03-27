@@ -3,6 +3,7 @@ import fav2 from "../../assets/fav2.webp";
 import ProductList from "../shop/ProductList";
 import Button from "../../app/components/Button";
 import { useAuthContext } from "../../app/context/AuthContext";
+import Footer from "../../app/layout/Footer";
 
 const FavoritesPage = () => {
   const { user } = useAuthContext();
@@ -29,6 +30,7 @@ const FavoritesPage = () => {
       <div className="mt-36">
         <ProductList products={items} />
       </div>
+      <Footer />
     </div>
   );
 };

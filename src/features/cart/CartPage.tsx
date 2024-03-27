@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../app/context/AuthContext";
 import CartForm from "./CartForm";
 import { Suspense } from "react";
+import Footer from "../../app/layout/Footer";
 
 const CartPage = () => {
   const { user } = useAuthContext();
@@ -41,6 +42,7 @@ const CartPage = () => {
           </div>
         </section>
       </div>
+      <Footer />
     </div>
   );
 };
