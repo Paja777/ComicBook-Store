@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
-axios.defaults.baseURL = "https://comicbook-server-v01.onrender.com";
+axios.defaults.baseURL = "https://comicbook-api-latest.onrender.com";
 axios.defaults.withCredentials = true;
 
 const responseBody = (response: AxiosResponse) => response.data;
