@@ -19,7 +19,7 @@ const FavoritesPage = () => {
       <div className="absolute top-10 left-[40%] font-poppins text-[50px] opacity-45 text-gradient">
         Your Favorite
       </div>
-      <div className="">
+      <div className="absolute z-[99] top-28 left-10">
         <Button
           size={{ w: "75px", h: "100px" }}
           name="<- back"
