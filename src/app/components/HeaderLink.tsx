@@ -11,6 +11,7 @@ const HeaderLink = ({ path, image, name, setSearchBar }: HeaderLinkProps) => {
   const itemCount = name === "favorite" ? user?.productFavorites.length : user?.productCart.length;
   const clickHandler = () => {
     if (name === "search") setSearchBar(true);
+    else setSearchBar(false);
   };
 
   return (
