@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from "../layout/App";
 import HomePage from "../../features/home/HomePage";
 import About from "../../features/about/About";
@@ -11,23 +11,23 @@ import LoginForm from "../../features/account/Login";
 import AdminDashboard from "../../features/adimin/AdminDashboard";
 
 
-const basename = 'https://comicbook-store-gxha.onrender.com'; 
 
-export const AppRouter = () => (
-  <BrowserRouter basename={basename}>
-    <Route
-      path="/"
-      element={<App />}
-    >
-      <Route path="/" element={<HomePage />} />
-      <Route path="/:id" element={<ProductDetails />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/cart" element={<CartPage />} />
-      <Route path="/favorite" element={<FavoritesPage />} />
-      <Route path="/signup" element={<SignupForm />} />
-      <Route path="/login" element={<LoginForm />} />
-      <Route path="/admin" element={<AdminDashboard />} />
-    </Route>
-  </BrowserRouter>
-);
+export const router = createBrowserRouter([
+  
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/:id", element: <ProductDetails /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+      { path: "/cart", element: <CartPage /> },
+      { path: "/favorite", element: <FavoritesPage /> },
+      { path: "/signup", element: <SignupForm /> },
+      { path: "/login", element: <LoginForm /> },
+      { path: "/admin", element: <AdminDashboard /> },
+      
+    ],
+  },
+]);
