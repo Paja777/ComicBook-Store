@@ -15,7 +15,7 @@ const FavoritesPage = () => {
     navigate("/");
   };
   return (
-    <div className="relative h-[700px] text-red-600 overflow-hidden">
+    <div className="relative h-auto text-red-600 overflow-hidden">
       <div className="absolute top-10 left-[40%] font-poppins text-[50px] opacity-45 text-gradient">
         Your Favorite
       </div>
