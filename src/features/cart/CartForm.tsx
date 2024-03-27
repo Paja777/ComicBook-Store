@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useUpdateUser } from "../../app/hooks/useUpdateUser";
 import { Product } from "../../app/models/product";
+import { useAuthContext } from "../../app/context/AuthContext";
 
 interface CartFormProps {
-  total: number | undefined;
   items: Product[] | undefined;
 }
 
-const CartForm = ({ total, items }: CartFormProps) => {
+const CartForm = ({ items }: CartFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -15,6 +15,8 @@ const CartForm = ({ total, items }: CartFormProps) => {
   });
   const { updateStockAndCart } = useUpdateUser();
   const { addToCart, removeFrom } = useUpdateUser();
+  const { user } = useAuthContext();
+  const totalPrice = user?.productCart.reduce((total, product) => total += product.amount * product.price ,0);
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -32,7 +34,6 @@ const CartForm = ({ total, items }: CartFormProps) => {
       removeFrom({ place: "cart", id, amount: 1 });
     }
   };
-  
 
   // Update product stock (after buying)
   const handleSubmit = async (e: any) => {
@@ -42,7 +43,7 @@ const CartForm = ({ total, items }: CartFormProps) => {
 
   return (
     <div className="max-w-md mx-0 w-[120%] px-14 mt-3 py-6  bg-primary text-[20px] opacity-80 rounded-lg shadow-md">
-      <h2 className="mb-5">Total: ${total}</h2>
+      <h2 className="mb-5">Total: ${totalPrice}</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="title" className="block text-white font-medium mb-2">
@@ -61,7 +62,7 @@ const CartForm = ({ total, items }: CartFormProps) => {
         </div>
         <div className="mb-4">
           <label
-            htmlFor="address" 
+            htmlFor="address"
             className="block text-white font-medium mb-2"
           >
             Address
@@ -96,9 +97,7 @@ const CartForm = ({ total, items }: CartFormProps) => {
           />
         </div>
         {items?.map((item: any) => (
-          <div 
-          key={item._id}
-          className="flex flex-row justify-between mt-2 ">
+          <div key={item._id} className="flex flex-row justify-between mt-2 ">
             <button
               type="button"
               onClick={() => handleClick("add", item._id)}

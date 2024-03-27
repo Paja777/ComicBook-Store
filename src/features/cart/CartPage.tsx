@@ -13,9 +13,7 @@ const CartPage = () => {
   const items = user?.productCart.map((p: any) => {
     return { ...p, _id: p.productId };
   });
-  const totalCost = user?.productCart.reduce((sum, item) => {
-    return sum + item.price;
-  }, 0);
+
 
   return (
     <div className="flex flex-col relative h-auto lg:h-full w-full text-red-600 overflow-hidden">
@@ -30,14 +28,14 @@ const CartPage = () => {
         />
       </div>
       <img src={cartCover} alt="cover_image" className="opacity-20 absolute" />
-      <div className="flex flex-row mt-16 ">
+      <div className="flex flex-col sm:flex-row mt-16 ">
         <div className="w-[60%] mt-20">
           <ProductList products={items} />
         </div>
         <section className="flex flex-col font-poppins text-white mb-0 text-[24px] mt-10 ml-10 leading-15">
           <div className="mt-10 z-[99]">
             <Suspense fallback={<p>...Loading</p>}>
-            <CartForm total={totalCost} items={items}/>
+            <CartForm  items={items}/>
             </Suspense>
           </div>
         </section>
