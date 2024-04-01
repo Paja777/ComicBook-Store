@@ -6,7 +6,7 @@ import { useState } from "react";
 import HeaderLink from "../components/HeaderLink";
 import SearchInput from "../components/SearchInput";
 import DropDown from "../components/DropDown";
-import { NavLink } from "react-router-dom";
+import { Link as linkToGithub, NavLink } from "react-router-dom";
 import Lottie from 'lottie-react'
 import animationData from '../../assets/animation1.json'
 
@@ -14,7 +14,7 @@ const Header = () => {
   const [searchBar, setSearchBar] = useState(false);
 
   return (
-    <div className="flex flex-col fixed bg-primary bg-opacity-5 w-full pb-1 z-[999]">
+    <div className="flex flex-col fixed bg-primary bg-opacity-5 w-full pb-1 z-[999] ">
       <nav className="flex flex-row  h-[60px] sm:h-[80px] md:h-[100px] justify-between items-center mb-2 ">
         <NavLink className="flex items-center" to={""}>
           <img
